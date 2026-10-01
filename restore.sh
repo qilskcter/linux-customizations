@@ -237,12 +237,15 @@ apply_system_optimizations() {
     log_step "Bước 8: Áp dụng Tối ưu hóa Hệ thống (Pin, Hiệu năng, ZRAM, SSD)"
     
     echo -e "${YELLOW}Thao tác này yêu cầu quyền sudo để sao chép vào /etc:${NC}"
-    echo "  1. /etc/tlp.d/00-extreme-battery.conf (Tiết kiệm pin cực đại ThinkPad)"
-    echo "  2. /etc/modprobe.d/i915-powersave.conf (Tiết kiệm điện GPU Intel FBC & PSR)"
-    echo "  3. /etc/environment (Độ nét font chữ Freetype stem-darkening)"
-    echo "  4. /etc/systemd/zram-generator.conf (Tạo RAM ảo Swap nén siêu tốc ZRAM)"
-    echo "  5. /etc/pacman.conf (Tải nhanh 5 luồng, giao diện màu sắc pacman)"
-    echo "  6. Dịch vụ tlp.service, fstrim.timer và mask power-profiles-daemon"
+    echo "  1. setup-battery-saver.sh (Bộ tối ưu pin cực hạn ThinkPad: TLP, RAPL 10W, Powertop)"
+    echo "  2. /etc/tlp.d/00-extreme-battery.conf (Giới hạn P-state 60%, xung GPU 650MHz, tắt Turbo Pin)"
+    echo "  3. /etc/udev/rules.d/99-rapl-battery.rules (Khóa trần công suất Intel RAPL 10W khi dùng pin)"
+    echo "  4. /etc/systemd/system/powertop.service (Powertop Auto-Tune toàn diện phần cứng)"
+    echo "  5. /etc/modprobe.d/i915-powersave.conf (Tiết kiệm điện GPU Intel FBC & PSR)"
+    echo "  6. /etc/environment (Độ nét font chữ Freetype stem-darkening)"
+    echo "  7. /etc/systemd/zram-generator.conf (Tạo RAM ảo Swap nén siêu tốc ZRAM)"
+    echo "  8. /etc/pacman.conf (Tải nhanh 5 luồng, giao diện màu sắc pacman)"
+    echo "  9. Dịch vụ tlp.service, fstrim.timer và mask power-profiles-daemon"
     echo ""
 
     if [ "$1" = "--force" ]; then
@@ -252,13 +255,11 @@ apply_system_optimizations() {
     fi
 
     if [[ "$confirm" =~ ^[Yy]$ ]]; then
-        sudo mkdir -p /etc/tlp.d /etc/modprobe.d /etc/systemd
-
-        log_info "Đang áp dụng cấu hình TLP ThinkPad..."
-        sudo cp -f "$SCRIPT_DIR/system/tlp.d/00-extreme-battery.conf" /etc/tlp.d/
-        
-        log_info "Đang áp dụng cấu hình GPU i915..."
-        sudo cp -f "$SCRIPT_DIR/system/modprobe.d/i915-powersave.conf" /etc/modprobe.d/
+        # Chạy script tối ưu pin cực hạn nếu có
+        if [ -f "$SCRIPT_DIR/system/setup-battery-saver.sh" ]; then
+            log_info "Đang thực thi bộ script tối ưu pin setup-battery-saver.sh..."
+            sudo bash "$SCRIPT_DIR/system/setup-battery-saver.sh"
+        fi
 
         log_info "Đang áp dụng tinh chỉnh độ nét Font Freetype..."
         sudo cp -f "$SCRIPT_DIR/system/environment" /etc/environment
@@ -269,9 +270,7 @@ apply_system_optimizations() {
         log_info "Đang áp dụng cấu hình Pacman..."
         sudo cp -f "$SCRIPT_DIR/system/pacman.conf" /etc/pacman.conf
 
-        log_info "Kích hoạt dịch vụ hệ thống..."
-        sudo systemctl mask power-profiles-daemon.service 2>/dev/null || true
-        sudo systemctl enable --now tlp.service 2>/dev/null || true
+        log_info "Kích hoạt dịch vụ hệ thống và SSD Trim..."
         sudo systemctl enable --now fstrim.timer 2>/dev/null || true
 
         log_success "Đã áp dụng toàn bộ tối ưu hóa hệ thống thành công!"

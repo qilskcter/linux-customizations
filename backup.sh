@@ -88,9 +88,16 @@ fi
 if [ -f "/etc/pacman.conf" ]; then
     cp -f /etc/pacman.conf "$SCRIPT_DIR/system/pacman.conf"
 fi
+if [ -f "/etc/udev/rules.d/99-rapl-battery.rules" ]; then
+    mkdir -p "$SCRIPT_DIR/system/udev.rules.d"
+    cp -f /etc/udev/rules.d/99-rapl-battery.rules "$SCRIPT_DIR/system/udev.rules.d/"
+fi
+if [ -f "/etc/systemd/system/powertop.service" ]; then
+    mkdir -p "$SCRIPT_DIR/system/services"
+    cp -f /etc/systemd/system/powertop.service "$SCRIPT_DIR/system/services/"
+fi
 
 echo ""
 echo -e "${GREEN}${BOLD}ĐÃ ĐỒNG BỘ TOÀN BỘ CẤU HÌNH MỚI NHẤT VÀO PROJECT THÀNH CÔNG!${NC}"
 echo -e "Thời gian cập nhật: $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
-EOF

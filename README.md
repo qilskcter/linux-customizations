@@ -210,22 +210,32 @@ linux-customizations/
 ### H. Tối ưu hóa Pin & Hiệu năng ThinkPad
 Các thiết lập nằm trong thư mục `system/` được tinh chỉnh tối ưu dành riêng cho dòng laptop ThinkPad chạy chip Intel:
 
-1. **TLP (`/etc/tlp.d/00-extreme-battery.conf`):**
+1. **Bộ script tối ưu pin cực hạn (`system/setup-battery-saver.sh`):**
+   - Script tự động hóa toàn bộ việc cài đặt `tlp`, `powertop`, thiết lập giới hạn công suất Intel RAPL, vô hiệu hóa xung đột và cấu hình ALSA.
+   - Có thể chạy độc lập: `sudo bash ~/Desktop/linux-customizations/system/setup-battery-saver.sh`.
+2. **Khóa trần công suất CPU Intel RAPL 10W (`/etc/udev/rules.d/99-rapl-battery.rules`):**
+   - Tự động nhận diện khi rút sạc (`online=0`): Khóa trần tiêu thụ điện của CPU ở mức **10W** (`10000000 uW`), ngăn ngừa CPU ngốn điện đột biến khi mở app nặng.
+   - Khi cắm sạc (`online=1`): Mở lại toàn bộ công suất tối đa **25W** để đạt hiệu năng cao nhất.
+3. **Powertop Auto-Tune Service (`/etc/systemd/system/powertop.service`):**
+   - Tự động kích hoạt toàn bộ các cờ tiết kiệm điện phần cứng (PCIe, USB, Audio, SATA, CPU) mỗi khi khởi động máy.
+4. **TLP (`/etc/tlp.d/00-extreme-battery.conf`):**
    - **Tắt Turbo Boost khi dùng pin (`CPU_BOOST_ON_BAT=0`):** Tiết kiệm đến 40-50% điện năng CPU, giảm nhiệt độ máy đáng kể.
+   - **Khóa trần hiệu năng CPU P-state ở mức 60% khi dùng pin (`CPU_MAX_PERF_ON_BAT=60`):** Giữ điện áp CPU luôn ở mức thấp.
+   - **Khống chế xung nhịp GPU Intel khi dùng pin:** Min 300MHz, Max 650MHz, Boost 750MHz.
    - **Chế độ năng lượng:** Dùng pin chuyển sang `power`, cắm sạc chuyển sang `balance_performance`.
-   - **Khống chế xung nhịp GPU Intel khi dùng pin:** Min 300MHz, Max 750MHz, Boost 800MHz.
    - **Tiết kiệm điện bus PCIe (ASPM):** Chuyển sang `powersupersave` khi dùng pin.
+   - **Tắt Wake-on-LAN card Ethernet (`WOL_DISABLE=Y`):** Ngăn card mạng Realtek ngốn pin ngầm.
    - **Âm thanh Conexant CX11880:** Bật chế độ nghỉ ngủ DAC sau 1s ngưng phát nhạc khi dùng pin nhưng vẫn giữ PCI controller mở để không bị rè/mất âm thanh PipeWire.
    - **Tắt Bluetooth tự động** khi khởi động máy bằng pin nếu không kết nối thiết bị.
-2. **GPU Intel Powersave (`/etc/modprobe.d/i915-powersave.conf`):**
+5. **GPU Intel Powersave (`/etc/modprobe.d/i915-powersave.conf`):**
    - Bật Frame Buffer Compression (`enable_fbc=1`) và Panel Self Refresh (`enable_psr=1`) giảm mức tiêu thụ điện màn hình tới mức tối đa.
-3. **ZRAM RAM ảo nén zstd 4GB (`/etc/systemd/zram-generator.conf`):**
+6. **ZRAM RAM ảo nén zstd 4GB (`/etc/systemd/zram-generator.conf`):**
    - Tạo phân vùng Swap 4GB nén bằng thuật toán zstd siêu tốc ngay trên RAM thật, giúp máy chạy mượt mà ngay cả khi mở nhiều tab trình duyệt, hoàn toàn không gây ghi hại ổ cứng SSD NVMe.
-4. **Bảo trì SSD định kỳ (`fstrim.timer`):**
+7. **Bảo trì SSD định kỳ (`fstrim.timer`):**
    - Tự động Trim dọn dẹp các khối nhớ thừa trên ổ cứng SSD hàng tuần, giữ tốc độ đọc ghi ổ luôn ở mức cao nhất.
-5. **Tối ưu Pacman (`/etc/pacman.conf`):**
+8. **Tối ưu Pacman (`/etc/pacman.conf`):**
    - Mở khóa tải 5 file song song (`ParallelDownloads = 5`), bật màu sắc hiển thị và kho phần mềm `multilib`.
-6. **Xử lý xung đột dịch vụ:**
+9. **Xử lý xung đột dịch vụ:**
    - Đã `mask power-profiles-daemon` để TLP nắm toàn quyền điều phối điện năng, tránh 2 trình quản lý giằng co làm nóng máy.
 
 ---
