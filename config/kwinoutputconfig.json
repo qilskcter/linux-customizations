@@ -20,7 +20,7 @@
                 ],
                 "autoRotation": "InTabletMode",
                 "automaticBrightness": false,
-                "brightness": 1,
+                "brightness": 0.45,
                 "colorPowerTradeoff": "PreferEfficiency",
                 "colorProfileSource": "sRGB",
                 "connectorName": "eDP-1",
@@ -85,7 +85,6 @@
                 "hdrIccProfilePath": "",
                 "highDynamicRange": false,
                 "iccProfilePath": "",
-                "maxBitsPerColor": 0,
                 "mode": {
                     "flags": 0,
                     "height": 1080,

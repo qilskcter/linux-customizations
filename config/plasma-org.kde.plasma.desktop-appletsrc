@@ -89,7 +89,7 @@ immutability=1
 plugin=KdeControlStation
 
 [Containments][73][Applets][104][Configuration]
-popupHeight=292
+popupHeight=510
 popupWidth=380
 
 [Containments][73][Applets][104][Configuration][Appearance]
