@@ -3,6 +3,8 @@
 > **Dành cho ThinkPad E490 / Arch Linux x86_64**  
 > Dự án chứa toàn bộ mã nguồn cấu hình, giao diện, widget, font chữ, bố cục panel, phím tắt, terminal và các thiết lập tối ưu máy tiết kiệm pin & hiệu năng cực đại.
 
+
+![Screenshot](./assets/screenshots/Screenshot.png)
 ---
 
 ## MỤC LỤC
