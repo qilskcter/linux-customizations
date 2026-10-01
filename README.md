@@ -31,7 +31,7 @@ Khi bạn lỡ tay xóa mất panel, giao diện bị vỡ, font chữ bị đ�
 
 ### Bước 1: Mở Terminal lên và di chuyển vào thư mục này:
 ```bash
-cd ~/Desktop/linux-customizations
+cd ~/Documents/GitHub/linux-customizations
 ```
 
 ### Bước 2: Chạy script khôi phục:
@@ -214,21 +214,25 @@ Các thiết lập nằm trong thư mục `system/` được tinh chỉnh tối 
 
 1. **Bộ script tối ưu pin cực hạn (`system/setup-battery-saver.sh`):**
    - Script tự động hóa toàn bộ việc cài đặt `tlp`, `powertop`, thiết lập giới hạn công suất Intel RAPL, vô hiệu hóa xung đột và cấu hình ALSA.
-   - Có thể chạy độc lập: `sudo bash ~/Desktop/linux-customizations/system/setup-battery-saver.sh`.
+   - Có thể chạy độc lập: `sudo bash ~/Documents/GitHub/linux-customizations/system/setup-battery-saver.sh`.
 2. **Khóa trần công suất CPU Intel RAPL 10W (`/etc/udev/rules.d/99-rapl-battery.rules`):**
    - Tự động nhận diện khi rút sạc (`online=0`): Khóa trần tiêu thụ điện của CPU ở mức **10W** (`10000000 uW`), ngăn ngừa CPU ngốn điện đột biến khi mở app nặng.
    - Khi cắm sạc (`online=1`): Mở lại toàn bộ công suất tối đa **25W** để đạt hiệu năng cao nhất.
 3. **Powertop Auto-Tune Service (`/etc/systemd/system/powertop.service`):**
    - Tự động kích hoạt toàn bộ các cờ tiết kiệm điện phần cứng (PCIe, USB, Audio, SATA, CPU) mỗi khi khởi động máy.
 4. **TLP (`/etc/tlp.d/00-extreme-battery.conf`):**
-   - **Tắt Turbo Boost khi dùng pin (`CPU_BOOST_ON_BAT=0`):** Tiết kiệm đến 40-50% điện năng CPU, giảm nhiệt độ máy đáng kể.
-   - **Khóa trần hiệu năng CPU P-state ở mức 60% khi dùng pin (`CPU_MAX_PERF_ON_BAT=60`):** Giữ điện áp CPU luôn ở mức thấp.
-   - **Khống chế xung nhịp GPU Intel khi dùng pin:** Min 300MHz, Max 650MHz, Boost 750MHz.
-   - **Chế độ năng lượng:** Dùng pin chuyển sang `power`, cắm sạc chuyển sang `balance_performance`.
-   - **Tiết kiệm điện bus PCIe (ASPM):** Chuyển sang `powersupersave` khi dùng pin.
-   - **Tắt Wake-on-LAN card Ethernet (`WOL_DISABLE=Y`):** Ngăn card mạng Realtek ngốn pin ngầm.
-   - **Âm thanh Conexant CX11880:** Bật chế độ nghỉ ngủ DAC sau 1s ngưng phát nhạc khi dùng pin nhưng vẫn giữ PCI controller mở để không bị rè/mất âm thanh PipeWire.
-   - **Tắt Bluetooth tự động** khi khởi động máy bằng pin nếu không kết nối thiết bị.
+   - **Khi Cắm Sạc (AC) - Bung 100% Sức Mạnh:**
+     - Xung CPU mở trần **3.9 GHz** (`CPU_SCALING_MAX_FREQ_ON_AC=3900000`, `CPU_MAX_PERF_ON_AC=100`, Turbo Boost ON).
+     - GPU Intel UHD 620 bung xung tối đa **1.10 GHz** (`1100 MHz`).
+     - SATA Link Power đạt `max_performance`, RAPL mở trần **25W**.
+   - **Khi Dùng Pin (BAT) - Siêu Tiết Kiệm (4.5W - 5.5W):**
+     - Tắt Turbo Boost (`CPU_BOOST_ON_BAT=0`), khóa trần CPU P-state ở mức 60% (~1.6 GHz).
+     - Khống chế xung GPU Intel: Min 300MHz, Max 650MHz, Boost 750MHz.
+     - Chế độ năng lượng: `power`, giới hạn RAPL trần **10W**.
+     - Tiết kiệm điện bus PCIe (ASPM): `powersupersave`.
+     - Tắt Wake-on-LAN card Ethernet (`WOL_DISABLE=Y`).
+     - Âm thanh Conexant CX11880: Bật chế độ nghỉ ngủ DAC sau 1s ngưng phát nhạc khi dùng pin nhưng vẫn giữ PCI controller mở để không bị rè/mất âm thanh PipeWire.
+     - Tắt Bluetooth tự động khi khởi động máy bằng pin nếu không kết nối thiết bị.
 5. **GPU Intel Powersave (`/etc/modprobe.d/i915-powersave.conf`):**
    - Bật Frame Buffer Compression (`enable_fbc=1`) và Panel Self Refresh (`enable_psr=1`) giảm mức tiêu thụ điện màn hình tới mức tối đa.
 6. **ZRAM RAM ảo nén zstd 4GB (`/etc/systemd/zram-generator.conf`):**
@@ -252,7 +256,7 @@ Trong quá trình sử dụng, nếu bạn:
 
 Bạn chỉ cần mở terminal và chạy:
 ```bash
-cd ~/Desktop/linux-customizations
+cd ~/Documents/GitHub/linux-customizations
 ./backup.sh
 ```
 Script sẽ tự động lấy toàn bộ cấu hình mới nhất trên máy bạn và lưu đè vào thư mục project này.
@@ -265,22 +269,22 @@ Nếu một ngày bạn cài lại Arch Linux mới tinh trên máy ThinkPad nà
 
 1. **Cài đặt các phần mềm chính thức:**
    ```bash
-   sudo pacman -S - < ~/Desktop/linux-customizations/packages/pkglist-repo.txt
+   sudo pacman -S - < ~/Documents/GitHub/linux-customizations/packages/pkglist-repo.txt
    ```
 2. **Cài đặt các ứng dụng AUR (nếu dùng yay):**
    ```bash
-   yay -S - < ~/Desktop/linux-customizations/packages/pkglist-aur.txt
+   yay -S - < ~/Documents/GitHub/linux-customizations/packages/pkglist-aur.txt
    ```
 3. **Biên dịch Darkly (nếu chưa có sẵn):**
    ```bash
-   cd ~/Desktop/linux-customizations/packages/darkly
+   cd ~/Documents/GitHub/linux-customizations/packages/darkly
    cmake -B build -S . -DBUILD_QT6=ON -DBUILD_QT5=OFF
    cmake --build build -j$(nproc)
    sudo cmake --install build
    ```
 4. **Chạy khôi phục 1-click:**
    ```bash
-   cd ~/Desktop/linux-customizations
+   cd ~/Documents/GitHub/linux-customizations
    ./restore.sh --all
    ```
 

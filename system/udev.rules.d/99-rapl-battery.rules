@@ -1,5 +1,5 @@
-# Khi rút sạc (online=0): Giới hạn trần công suất CPU ở 10W (10000000 uW)
-SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/bin/bash -c 'if [ -f /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw ]; then echo 10000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw; fi'"
-
-# Khi cắm sạc (online=1): Mở lại công suất tối đa 25W (25000000 uW)
+# Khi cắm sạc: Bung hết 25W
 SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/bin/bash -c 'if [ -f /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw ]; then echo 25000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw; fi'"
+
+# Khi rút sạc: Khóa ở 10W
+SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/bin/bash -c 'if [ -f /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw ]; then echo 10000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw; fi'"
