@@ -1,0 +1,12 @@
+# Các dịch vụ hệ thống đã được tối ưu:
+# 1. TLP (Quản lý pin và xung nhịp cho ThinkPad)
+systemctl enable --now tlp.service
+
+# 2. Mask power-profiles-daemon để tránh xung đột với TLP
+systemctl mask power-profiles-daemon.service
+
+# 3. fstrim (Tối ưu hóa và bảo vệ tuổi thọ ổ SSD NVMe định kỳ mỗi tuần)
+systemctl enable --now fstrim.timer
+
+# 4. systemd-zram-setup (Tạo 4GB RAM Swap nén zstd siêu tốc, không hại ổ cứng)
+# Tự động kích hoạt khi có tệp /etc/systemd/zram-generator.conf

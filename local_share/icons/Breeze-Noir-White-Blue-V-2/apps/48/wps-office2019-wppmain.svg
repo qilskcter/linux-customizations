@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="wps-office-wppmain.svg"
+   inkscape:version="1.4.4 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="8.3637474"
+     inkscape:cx="25.108362"
+     inkscape:cy="37.722325"
+     inkscape:window-width="1920"
+     inkscape:window-height="994"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <title
+     id="title1">wps-office-wppmain</title>
+  <defs
+     id="defs4">
+    <linearGradient
+       x1="30"
+       y1="2"
+       x2="30"
+       y2="56"
+       id="a"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#FF8767"
+         offset="0%"
+         id="stop1" />
+      <stop
+         stop-color="#FF6134"
+         offset="100%"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       x1="17.553991"
+       y1="24.003586"
+       x2="5.9988828"
+       y2="24.003586"
+       id="b"
+       gradientTransform="scale(1.3587063,0.73599423)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#FFD6C2"
+         offset="0%"
+         id="stop3" />
+      <stop
+         stop-color="#FFC4B1"
+         offset="100%"
+         id="stop4" />
+    </linearGradient>
+  </defs>
+  <g
+     fill-rule="evenodd"
+     fill="none"
+     id="g11"
+     transform="matrix(0.73333333,0,0,0.73333333,-0.19999989,0.80000001)">
+    <g
+       transform="translate(3,3)"
+       id="g6">
+      <image
+         width="60"
+         height="60"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAb9JREFUaAXtm9tuwkAMRElLL6r4/z/lgZY29dlkzEat2ld2YktmhyVIezwOvDjTYYlpXVl63W3frZy7k/W6275J4AT4sGqt2r9dfV8KOOVXaJL4E/q4XHMA8jHyFPm67o2wAPceeY68Rv4LDSROAvwcCfBIwdkxjbMDTMjhXzsUYLn7EpovjhgwcP7PSLU5HD+g5TArX1CLc/FoAVwPzfmB30ALWG0xMjCAguZeltMbaAGz0s6jAwdCC92aPXhz2hUY6qdI7u0NNBvOwV/sWySd21jdgTFTP8atpfcADKgcnvYAjMv6rVr6mh3zwOXdtPTGy720dEIXcJbCVJTDpsYmVjmcpTAV5bCpsYlVDmcpTEU5bGpsYpXDWQpTUQ6bGptY5XCWwlSUw6bGJlY5nKUwFeWwqbGJVQ5nKUxFOWxqbGKVw1kKU1EOmxqbWOVwlsJUlMOmxiZWOZylMBVyWLPFppg5O52TeAAzPu8aejSgDV0Cy0wxD0lcIpk+1axxyGEDpo9ImPTEy6wJeKD5kODDHMZsO2O+qGvhgY33beCyDV2G5n5Ga9V+bA0ZAJKaiGddJky7td9DO0RzdgWZvwF9NkH7VCrSmAAAAABJRU5ErkJggg=="
+         id="image4" />
+      <path
+         d="m 4.333,2 h 43.16 c 0.327,0 0.642,0.12 0.886,0.337 l 8.173,7.265 C 56.837,9.855 57,10.218 57,10.599 V 54.667 C 57,55.403 56.403,56 55.667,56 H 4.333 A 1.333,1.333 0 0 1 3,54.667 V 3.333 C 3,2.597 3.597,2 4.333,2 Z"
+         fill="url(#a)"
+         id="path4"
+         style="fill:url(#a)" />
+      <path
+         d="M 57,32.857 V 10.047 C 57,9.645 56.818,9.264 56.506,9.011 L 48.212,2.297 A 1.333,1.333 0 0 0 47.373,2 H 4.333 C 3.597,2 3,2.597 3,3.333 V 29.5 4.333 C 3,3.597 3.597,3 4.333,3 h 43.04 c 0.306,0 0.602,0.105 0.84,0.297 l 8.293,6.714 C 56.818,10.264 57,10.645 57,11.047 Z"
+         fill="#ffa187"
+         id="path5" />
+      <path
+         d="m 57,31.857 v 22.81 C 57,55.403 56.403,56 55.667,56 H 4.333 A 1.333,1.333 0 0 1 3,54.667 V 28.5 53.667 C 3,54.403 3.597,55 4.333,55 H 55.667 C 56.403,55 57,54.403 57,53.667 Z"
+         fill="#f53600"
+         id="path6" />
+    </g>
+    <g
+       fill-rule="nonzero"
+       id="g10">
+      <path
+         d="M 24,34.667 V 39 h 16 v -8 1 H 25.333 A 1.333,1.333 0 0 1 24,30.667 V 26.333 C 24,25.597 24.597,25 25.333,25 H 38.667 C 39.403,25 40,25.597 40,26.333 V 39 h 6.667 C 47.403,39 48,38.403 48,37.667 V 19.333 C 48,18.597 47.403,18 46.667,18 H 17.333 C 16.597,18 16,18.597 16,19.333 V 47.667 C 16,48.403 16.597,49 17.333,49 h 5.334 C 23.403,49 24,48.403 24,47.667 Z"
+         fill="#f53600"
+         id="path7" />
+      <path
+         d="m 24,14 v 8 H 8 v -8.667 0.334 C 8,14.403 8.597,15 9.333,15 H 24 Z"
+         fill="url(#b)"
+         transform="translate(16,16)"
+         id="path8"
+         style="fill:url(#b)" />
+      <path
+         d="M 38.667,24 H 25.333 C 24.597,24 24,24.597 24,25.333 V 46.667 C 24,47.403 23.403,48 22.667,48 H 17.333 A 1.333,1.333 0 0 1 16,46.667 V 17.333 C 16,16.597 16.597,16 17.333,16 H 46.667 C 47.403,16 48,16.597 48,17.333 V 36.667 C 48,37.403 47.403,38 46.667,38 H 40 V 25.333 C 40,24.597 39.403,24 38.667,24 Z"
+         fill="#ffffff"
+         id="path9" />
+      <path
+         d="M 38.667,24 H 25.333 C 24.597,24 24,24.597 24,25.333 V 46.667 C 24,47.403 23.403,48 22.667,48 H 17.333 A 1.333,1.333 0 0 1 16,46.667 V 18.333 C 16,17.597 16.597,17 17.333,17 H 46.667 C 47.403,17 48,17.597 48,18.333 V 36.667 C 48,37.403 47.403,38 46.667,38 H 40 V 25.333 C 40,24.597 39.403,24 38.667,24 Z"
+         fill="#fff0ec"
+         id="path10" />
+    </g>
+  </g>
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>wps-office-wppmain</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

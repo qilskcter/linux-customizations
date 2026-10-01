@@ -1,0 +1,11 @@
+[9449caa0-7de8-4984-9765-3bfaaa5de970]
+Description=Move
+placement=0
+placementrule=2
+position=2950,35
+positionrule=2
+types=65536
+
+[General]
+count=1
+rules=9449caa0-7de8-4984-9765-3bfaaa5de970

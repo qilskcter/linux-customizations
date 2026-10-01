@@ -1,0 +1,3 @@
+# Thêm vào /etc/makepkg.conf để tăng tốc compile và nén gói bằng toàn bộ luồng CPU:
+MAKEFLAGS="-j$(nproc)"
+COMPRESSZST=(zstd -c -T0 -)

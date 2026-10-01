@@ -1,0 +1,5 @@
+[Libinput][1739][0][Synaptics TM3471-020]
+NaturalScroll=true
+PointerAcceleration=0.200
+PointerAccelerationProfile=1
+ScrollFactor=0.3

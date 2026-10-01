@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="wps-office2019-pdfmain.svg"
+   inkscape:version="1.4.4 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.828125"
+     inkscape:cx="23.080581"
+     inkscape:cy="17.88111"
+     inkscape:window-width="1920"
+     inkscape:window-height="994"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <title
+     id="title1">wps-office-wppmain</title>
+  <defs
+     id="defs2">
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       x1="30"
+       y1="2"
+       x2="30"
+       y2="56"
+       id="a">
+      <stop
+         stop-color="#f05c74"
+         offset="0"
+         id="stop1" />
+      <stop
+         stop-color="#aa2c2c"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+  </defs>
+  <g
+     fill="none"
+     fill-rule="evenodd"
+     id="g7"
+     transform="matrix(0.73333333,0,0,0.73333333,-0.19999989,0.80000001)">
+    <g
+       transform="translate(3,3)"
+       id="g4">
+      <image
+         width="60"
+         height="60"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAb9JREFUaAXtm9tuwkAMRElLL6r4/z/lgZY29dlkzEat2ld2YktmhyVIezwOvDjTYYlpXVl63W3frZy7k/W6275J4AT4sGqt2r9dfV8KOOVXaJL4E/q4XHMA8jHyFPm67o2wAPceeY68Rv4LDSROAvwcCfBIwdkxjbMDTMjhXzsUYLn7EpovjhgwcP7PSLU5HD+g5TArX1CLc/FoAVwPzfmB30ALWG0xMjCAguZeltMbaAGz0s6jAwdCC92aPXhz2hUY6qdI7u0NNBvOwV/sWySd21jdgTFTP8atpfcADKgcnvYAjMv6rVr6mh3zwOXdtPTGy720dEIXcJbCVJTDpsYmVjmcpTAV5bCpsYlVDmcpTEU5bGpsYpXDWQpTUQ6bGptY5XCWwlSUw6bGJlY5nKUwFeWwqbGJVQ5nKUxFOWxqbGKVw1kKU1EOmxqbWOVwlsJUlMOmxiZWOZylMBVyWLPFppg5O52TeAAzPu8aejSgDV0Cy0wxD0lcIpk+1axxyGEDpo9ImPTEy6wJeKD5kODDHMZsO2O+qGvhgY33beCyDV2G5n5Ga9V+bA0ZAJKaiGddJky7td9DO0RzdgWZvwF9NkH7VCrSmAAAAABJRU5ErkJggg=="
+         id="image2" />
+      <path
+         d="m 4.333,2 h 43.16 c 0.327,0 0.642,0.12 0.886,0.337 l 8.173,7.265 C 56.837,9.855 57,10.218 57,10.599 V 54.667 C 57,55.403 56.403,56 55.667,56 H 4.333 A 1.333,1.333 0 0 1 3,54.667 V 3.333 C 3,2.597 3.597,2 4.333,2 Z"
+         fill="url(#a)"
+         id="path2"
+         style="fill:url(#a)" />
+      <path
+         d="M 57,32.857 V 10.047 C 57,9.645 56.818,9.264 56.506,9.011 L 48.212,2.297 A 1.333,1.333 0 0 0 47.373,2 H 4.333 C 3.597,2 3,2.597 3,3.333 V 29.5 4.333 C 3,3.597 3.597,3 4.333,3 h 43.04 c 0.306,0 0.602,0.105 0.84,0.297 l 8.293,6.714 C 56.818,10.264 57,10.645 57,11.047 Z"
+         fill="#ff87c0"
+         id="path3" />
+      <path
+         d="m 57,31.857 v 22.81 C 57,55.403 56.403,56 55.667,56 H 4.333 A 1.333,1.333 0 0 1 3,54.667 V 28.5 53.667 C 3,54.403 3.597,55 4.333,55 H 55.667 C 56.403,55 57,54.403 57,53.667 Z"
+         fill="#f53600"
+         id="path4" />
+    </g>
+    <path
+       d="m 31.825,27.472 a 1,1 0 0 0 -1,1 v 4.008 a 1,1 0 1 0 2,0 v -3.008 h 1.937 c 0.006,10e-4 0.519,0.045 1.041,0.364 0.526,0.32 1.022,0.776 1.022,2.094 0,1.317 -0.507,1.809 -1.041,2.152 -0.527,0.338 -1.028,0.397 -1.043,0.398 h -5.166 a 1,1 0 0 0 -0.278,0.04 c 0,0 -0.644,0.185 -1.246,0.702 -0.602,0.518 -1.22,1.466 -1.226,2.754 -0.006,1.293 0.615,2.246 1.22,2.764 0.606,0.518 1.254,0.701 1.254,0.701 a 1,1 0 0 0 0.276,0.04 h 2.25 a 1,1 0 0 0 1,-1 v -2 a 1,1 0 1 0 -2,0 v 1 h -1.041 c -0.05,-0.017 -0.202,-0.06 -0.438,-0.262 -0.271,-0.233 -0.524,-0.53 -0.521,-1.235 0.003,-0.708 0.26,-1.011 0.531,-1.244 0.236,-0.203 0.383,-0.243 0.432,-0.26 h 5.037 a 1,1 0 0 0 0.1,-0.006 c 0,0 0.975,-0.09 1.94,-0.709 0.966,-0.619 1.96,-1.903 1.96,-3.835 0,-1.933 -1.004,-3.206 -1.979,-3.801 -0.974,-0.595 -1.953,-0.653 -1.953,-0.653 a 1,1 0 0 0 -0.068,-0.004 z"
+       opacity="0.2"
+       id="path5" />
+    <path
+       d="m 29.989,13.871 a 2.666,2.666 0 0 0 -2.666,2.666 V 27.22 a 2.666,2.666 0 1 0 5.331,0 v -8.018 h 5.165 c 0.016,0 1.382,0.117 2.775,0.968 1.401,0.855 2.723,2.07 2.723,5.581 0,3.512 -1.35,4.823 -2.775,5.738 -1.404,0.901 -2.74,1.057 -2.78,1.062 H 23.991 a 2.666,2.666 0 0 0 -0.74,0.104 c 0,0 -1.717,0.494 -3.321,1.875 -1.605,1.38 -3.255,3.905 -3.27,7.34 -0.016,3.446 1.64,5.986 3.254,7.368 1.615,1.382 3.343,1.87 3.343,1.87 a 2.666,2.666 0 0 0 0.734,0.103 h 5.998 a 2.666,2.666 0 0 0 2.665,-2.665 v -5.332 a 2.666,2.666 0 1 0 -5.331,0 v 2.666 h -2.775 c -0.133,-0.045 -0.538,-0.16 -1.166,-0.698 -0.724,-0.62 -1.399,-1.412 -1.39,-3.29 0.008,-1.89 0.694,-2.696 1.416,-3.317 0.628,-0.54 1.02,-0.649 1.15,-0.692 h 13.428 a 2.666,2.666 0 0 0 0.265,-0.016 c 0,0 2.602,-0.239 5.176,-1.89 2.573,-1.651 5.222,-5.074 5.222,-10.226 0,-5.152 -2.677,-8.545 -5.274,-10.132 -2.598,-1.586 -5.207,-1.739 -5.207,-1.739 a 2.666,2.666 0 0 0 -0.182,-0.01 z"
+       fill="#932000"
+       stroke-width="2.666"
+       id="path6" />
+    <path
+       d="M 29.989,25.888 V 15.206 h 7.997 c 0,0 7.997,0.552 7.997,9.216 0,8.663 -7.997,9.463 -7.997,9.463 H 23.99 c 0,0 -4.642,1.34 -4.665,6.664 -0.024,5.325 4.665,6.665 4.665,6.665 h 5.998 v -5.332"
+       stroke="#ffffff"
+       stroke-width="5.331"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="path7" />
+  </g>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>wps-office-wppmain</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

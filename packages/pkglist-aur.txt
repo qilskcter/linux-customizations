@@ -1,0 +1,17 @@
+antigravity
+fprintd-clients-git
+github-desktop
+hyprsysteminfo
+mpvpaper
+open-fprintd
+python-pywalfox
+python-screeninfo
+python-validity
+quickshell-git
+rustdesk-bin
+teamviewer
+ttf-wps-fonts
+visual-studio-code-bin
+wps-office
+yay-bin
+yay-bin-debug

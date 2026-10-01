@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="wps-office2019-kprometheus.svg"
+   inkscape:version="1.4.4 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.9140625"
+     inkscape:cx="32.634082"
+     inkscape:cy="42.863937"
+     inkscape:window-width="1920"
+     inkscape:window-height="994"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <title
+     id="title1">wps-office-wppmain</title>
+  <defs
+     id="defs7">
+    <linearGradient
+       id="b">
+      <stop
+         offset="0"
+         stop-color="#1a67d9"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#5f98ec"
+         stop-opacity=".973"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="a">
+      <stop
+         offset="0"
+         stop-color="#fff"
+         id="stop3" />
+      <stop
+         offset=".274"
+         stop-color="#fff"
+         stop-opacity=".864"
+         id="stop4" />
+      <stop
+         offset=".505"
+         stop-color="#fff"
+         stop-opacity=".471"
+         id="stop5" />
+      <stop
+         offset=".693"
+         stop-color="#fff"
+         id="stop6" />
+      <stop
+         offset="1"
+         stop-color="#fff"
+         stop-opacity=".974"
+         id="stop7" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#a"
+       id="d"
+       x1="25.351"
+       y1="42.487"
+       x2="47.097"
+       y2="21.903999"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#b"
+       id="c"
+       x1="28.284"
+       y1="-5.5149999"
+       x2="7.4640002"
+       y2="-5.6950002"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     fill="none"
+     fill-rule="evenodd"
+     id="g11"
+     transform="matrix(0.65658684,0,0,0.6576681,2.661256,2.9750085)">
+    <path
+       d="M 5.085,47.797 5.277,15.925 32.69,0.157 59.914,16.26 59.722,48.132 32.307,63.9 Z"
+       style="isolation:auto;mix-blend-mode:normal;marker:none"
+       color="#000000"
+       display="block"
+       overflow="visible"
+       fill="#0b4385"
+       fill-opacity="0.963"
+       fill-rule="nonzero"
+       stroke-width="14.222"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-opacity="0.157"
+       paint-order="stroke markers fill"
+       id="path7" />
+    <path
+       style="isolation:auto;mix-blend-mode:normal;fill:url(#c);marker:none"
+       d="M 23.607,5.042 10.957,4.856 4.795,-6.192 l 6.486,-10.861 12.649,0.186 6.162,11.047 z"
+       transform="matrix(0.02138065,2.4797378,-2.4797378,0.02138065,17.233646,-11.718877)"
+       color="#000000"
+       display="block"
+       overflow="visible"
+       fill="url(#c)"
+       fill-rule="nonzero"
+       stroke-width="14.222"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-opacity="0.157"
+       paint-order="stroke markers fill"
+       id="path8" />
+    <path
+       d="m 24.951,47.219 c -0.535,-0.327 -1.558,-2.276 -6.237,-11.893 -3.825,-7.86 -5.597,-11.723 -5.597,-12.198 0,-0.912 0.51,-1.66 1.325,-1.944 0.886,-0.31 11.082,-0.304 12.217,0.006 1.637,0.447 2.113,1.026 4.073,4.954 l 1.833,3.674 -0.71,1.439 c -0.425,0.862 -0.826,1.415 -1,1.38 -0.16,-0.033 -1.228,-1.822 -2.374,-3.974 -1.146,-2.153 -2.217,-4 -2.38,-4.102 -0.388,-0.246 -8.659,-0.251 -8.81,-0.006 -0.095,0.154 8.426,18.027 8.747,18.348 0.22,0.22 0.835,-0.868 5.744,-10.16 3.239,-6.132 5.433,-10.047 5.9,-10.528 1.095,-1.127 1.932,-1.26 7.912,-1.26 5.52,0 6.291,0.109 6.854,0.968 0.714,1.088 0.539,1.529 -5.206,13.122 -3.047,6.149 -5.765,11.438 -6.04,11.753 -0.93,1.063 -2.345,1.048 -3.327,-0.035 -0.304,-0.336 -1.462,-2.402 -2.572,-4.591 l -2.018,-3.98 0.632,-1.209 c 0.348,-0.664 0.774,-1.207 0.947,-1.207 0.182,0 1.17,1.473 2.347,3.501 1.118,1.926 2.129,3.534 2.247,3.573 0.264,0.088 9.326,-18.01 9.156,-18.286 -0.195,-0.316 -8.263,-0.252 -8.675,0.07 -0.188,0.146 -2.9,5.112 -6.025,11.035 -3.444,6.528 -5.93,11 -6.312,11.356 -0.75,0.698 -1.71,0.768 -2.65,0.194 z"
+       fill="#000000"
+       fill-opacity="0.199"
+       stroke-width="0.213"
+       id="path9" />
+    <path
+       d="m 24.021,45.94 c -0.536,-0.327 -1.558,-2.276 -6.238,-11.894 -3.824,-7.86 -5.596,-11.722 -5.596,-12.197 0,-0.913 0.51,-1.66 1.325,-1.944 0.886,-0.31 11.082,-0.304 12.216,0.006 1.638,0.447 2.114,1.026 4.074,4.954 l 1.833,3.674 -0.71,1.439 c -0.425,0.861 -0.826,1.415 -1,1.38 -0.16,-0.034 -1.228,-1.822 -2.374,-3.975 -1.146,-2.153 -2.217,-3.998 -2.38,-4.102 -0.388,-0.245 -8.66,-0.25 -8.81,-0.005 -0.096,0.154 8.426,18.027 8.747,18.348 0.22,0.22 0.835,-0.868 5.743,-10.16 3.24,-6.132 5.434,-10.048 5.901,-10.529 1.095,-1.126 1.932,-1.26 7.912,-1.26 5.519,0 6.291,0.11 6.854,0.968 0.713,1.09 0.538,1.53 -5.206,13.123 -3.047,6.149 -5.766,11.438 -6.041,11.753 -0.929,1.062 -2.344,1.047 -3.326,-0.035 -0.305,-0.336 -1.462,-2.402 -2.572,-4.591 l -2.018,-3.981 0.632,-1.208 c 0.347,-0.664 0.773,-1.208 0.946,-1.208 0.183,0 1.17,1.474 2.348,3.502 1.117,1.926 2.129,3.533 2.247,3.573 0.264,0.088 9.326,-18.01 9.156,-18.286 -0.196,-0.316 -8.263,-0.252 -8.675,0.069 -0.189,0.147 -2.9,5.113 -6.025,11.036 -3.444,6.528 -5.93,11 -6.312,11.356 -0.75,0.697 -1.71,0.768 -2.65,0.194 z"
+       fill="url(#d)"
+       stroke-width="0.213"
+       id="path10"
+       style="fill:url(#d)" />
+    <path
+       style="isolation:auto;mix-blend-mode:normal;marker:none"
+       d="M 32.69,0.038 5.428,15.558 5.238,46.928 5.249,46.935 5.429,17.595 32.69,2.074 59.75,17.92 59.761,15.89 Z"
+       color="#000000"
+       display="block"
+       overflow="visible"
+       fill="#8aa8cb"
+       fill-opacity="0.534"
+       fill-rule="nonzero"
+       stroke-width="35.269"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-opacity="0.157"
+       paint-order="stroke markers fill"
+       id="path11" />
+  </g>
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>wps-office-wppmain</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

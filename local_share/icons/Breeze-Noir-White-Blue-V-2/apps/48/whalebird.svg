@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="64"
+   height="64"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="whalebird.svg"
+   inkscape:version="1.4.4 (unknown)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.9140625"
+     inkscape:cx="29.590489"
+     inkscape:cy="44.047556"
+     inkscape:window-width="1920"
+     inkscape:window-height="994"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     transform="translate(3.826 3.826)scale(1.1739)"
+     id="g1">
+    <circle
+       cx="24"
+       cy="24"
+       r="23"
+       fill="#74b1f2"
+       id="circle1"
+       style="fill:#2c5aa0" />
+    <path
+       fill="#acf5ec"
+       d="m 37.000341,27.000341 c 0,4.97 -2.686,9 -6,9 -2.283,0 -3,-1 -4,-2.5 -0.6,0.745 -0.688,1.5 -5,1.5 0,0 2,-2 2,-4 0,-3 -1,-4 -2,-4 -4,0 -5,1 -6,2 -0.186,-0.156 2,0 2,2 0,2 -1,3 -1,3 0,0 0,-2 -2,-2 -2.719,0 -3,3 -3,3 0,0 -1,0 -1,-2 0,-4 3,-5 3,-5 0,-8 5,-11 8,-12 0,-2.32 -0.38,-2.64 -1,-3.5 0.59,-0.328 1.164,-0.5 2,-0.5 4,0 5.5,2 6.5,4 5.5,2.688 7.5,7 7.5,11"
+       style="fill:#d7e3f4;paint-order:normal"
+       id="path1" />
+  </g>
+</svg>
