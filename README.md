@@ -1,11 +1,11 @@
-# 🌟 CẨM NANG & BỘ CẤU HÌNH TÙY BIẾN TOÀN DIỆN ARCH LINUX + KDE PLASMA 6
+# CẨM NANG & BỘ CẤU HÌNH TÙY BIẾN TOÀN DIỆN ARCH LINUX + KDE PLASMA 6
 
 > **Dành cho ThinkPad E490 / Arch Linux x86_64**  
 > Dự án chứa toàn bộ mã nguồn cấu hình, giao diện, widget, font chữ, bố cục panel, phím tắt, terminal và các thiết lập tối ưu máy tiết kiệm pin & hiệu năng cực đại.
 
 ---
 
-## 📑 MỤC LỤC
+## MỤC LỤC
 1. [Khôi phục giao diện như cũ chỉ với 1 lệnh](#1-khôi-phục-giao-diện-như-cũ-chỉ-với-1-lệnh)
 2. [Cấu trúc thư mục dự án](#2-cấu-trúc-thư-mục-dự-án)
 3. [Chi tiết toàn bộ các thành phần đã được tùy biến](#3-chi-tiết-toàn-bộ-các-thành-phần-đã-được-tùy-biến)
