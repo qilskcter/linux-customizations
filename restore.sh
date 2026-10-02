@@ -130,6 +130,7 @@ restore_wallpapers() {
 
     if [ -f "$SCRIPT_DIR/assets/icons/cat-svgrepo-com.svg" ]; then
         log_info "Đang khôi phục biểu tượng chú mèo cho Application Launcher..."
+        cp -f "$SCRIPT_DIR/assets/icons/cat-svgrepo-com.svg" "$HOME/Documents/cat-svgrepo-com.svg" 2>/dev/null || true
         cp -f "$SCRIPT_DIR/assets/icons/cat-svgrepo-com.svg" "$HOME/Downloads/cat-svgrepo-com.svg" 2>/dev/null || true
     fi
 

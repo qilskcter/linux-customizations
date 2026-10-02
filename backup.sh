@@ -69,7 +69,9 @@ cp -rf "$HOME/.local/share/easyeffects/"* "$SCRIPT_DIR/local_share/easyeffects/"
 # 3b. Sao lưu biểu tượng tùy chỉnh (assets/icons)
 log_info "Sao lưu biểu tượng tùy chỉnh (cat-svgrepo-com.svg, control-centre)..."
 mkdir -p "$SCRIPT_DIR/assets/icons"
-if [ -f "$HOME/Downloads/cat-svgrepo-com.svg" ]; then
+if [ -f "$HOME/Documents/cat-svgrepo-com.svg" ]; then
+    cp -f "$HOME/Documents/cat-svgrepo-com.svg" "$SCRIPT_DIR/assets/icons/"
+elif [ -f "$HOME/Downloads/cat-svgrepo-com.svg" ]; then
     cp -f "$HOME/Downloads/cat-svgrepo-com.svg" "$SCRIPT_DIR/assets/icons/"
 fi
 if [ -f "$HOME/Downloads/control-centre-svgrepo-com (3).svg" ]; then
