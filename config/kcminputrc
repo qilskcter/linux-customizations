@@ -2,4 +2,7 @@
 NaturalScroll=true
 PointerAcceleration=0.200
 PointerAccelerationProfile=1
-ScrollFactor=0.3
+ScrollFactor=0.5
+
+[Libinput][2][10][TPPS/2 ALPS TrackPoint]
+PointerAccelerationProfile=1

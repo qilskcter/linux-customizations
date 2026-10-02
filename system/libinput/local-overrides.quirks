@@ -1,0 +1,6 @@
+[Synaptics TM3471-020 Pressure Fix]
+MatchName=Synaptics TM3471-020
+MatchUdevType=touchpad
+AttrPressureRange=6:4
+AttrPalmPressureThreshold=120
+AttrThumbPressureThreshold=60

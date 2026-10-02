@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+import os, sys, gzip, re, configparser, subprocess
+
+def get_darkly_opacity():
+    darklyrc = os.path.expanduser("~/.config/darklyrc")
+    if os.path.exists(darklyrc):
+        config = configparser.ConfigParser()
+        config.read(darklyrc)
+        if "Style" in config and "DolphinViewOpacity" in config["Style"]:
+            try:
+                return float(config["Style"]["DolphinViewOpacity"]) / 100.0
+            except ValueError:
+                pass
+    return 0.60
+
+def main():
+    target_opacity = None
+    if len(sys.argv) > 1:
+        try:
+            val = float(sys.argv[1])
+            target_opacity = val / 100.0 if val > 1 else val
+        except ValueError:
+            print("Usage: sync-sweet-darkly [opacity 0.0-1.0 or 0-100]")
+            sys.exit(1)
+    else:
+        target_opacity = get_darkly_opacity()
+
+    theme_dir = os.path.expanduser("~/.local/share/plasma/desktoptheme/Sweet")
+    if not os.path.exists(theme_dir):
+        print(f"Error: Theme directory {theme_dir} not found.")
+        sys.exit(1)
+
+    print(f"Applying opacity: {target_opacity:.2f} ({int(target_opacity*100)}%) to Sweet Plasma Style...")
+
+    # 1. metadata.desktop - disable adaptive transparency so panel is always blurred
+    meta_path = os.path.join(theme_dir, "metadata.desktop")
+    if os.path.exists(meta_path):
+        with open(meta_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        content = re.sub(r"\[AdaptiveTransparency\]\s*enabled=true", "[AdaptiveTransparency]\nenabled=false", content)
+        with open(meta_path, "w", encoding="utf-8") as f:
+            f.write(content)
+
+    # 2. dialogs/background.svgz
+    dialog_path = os.path.join(theme_dir, "dialogs/background.svgz")
+    if os.path.exists(dialog_path):
+        with gzip.open(dialog_path, "rb") as f:
+            svg = f.read().decode("utf-8")
+        svg = re.sub(r"opacity:\s*0\.[0-9]+", f"opacity:{target_opacity:.2f}", svg)
+        with gzip.open(dialog_path, "wb") as f:
+            f.write(svg.encode("utf-8"))
+
+    # 3. widgets/panel-background.svg & svgz
+    panel_svg = os.path.join(theme_dir, "widgets/panel-background.svg")
+    if os.path.exists(panel_svg):
+        with open(panel_svg, "r", encoding="utf-8") as f:
+            svg = f.read()
+        # update opacity on background rects
+        svg = re.sub(r"opacity:\s*0\.[0-9]+", f"opacity:{target_opacity:.2f}", svg)
+        with open(panel_svg, "w", encoding="utf-8") as f:
+            f.write(svg)
+
+    panel_svgz = os.path.join(theme_dir, "widgets/panel-background.svgz")
+    if os.path.exists(panel_svgz):
+        with gzip.open(panel_svgz, "rb") as f:
+            svg = f.read().decode("utf-8")
+        svg = re.sub(r"opacity:\s*0\.[0-9]+", f"opacity:{target_opacity:.2f}", svg)
+        with gzip.open(panel_svgz, "wb") as f:
+            f.write(svg.encode("utf-8"))
+
+    # Clear cache
+    cache_path = os.path.expanduser("~/.cache/plasma_theme_Sweet.kcache")
+    if os.path.exists(cache_path):
+        os.remove(cache_path)
+
+    # Restart plasmashell
+    subprocess.run(["systemctl", "--user", "restart", "plasma-plasmashell.service"])
+    print("Done! Plasma workspace updated.")
+
+if __name__ == "__main__":
+    main()

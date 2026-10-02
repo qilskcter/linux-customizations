@@ -85,16 +85,21 @@ linux-customizations/
 │   ├── .gitconfig                 # Thông tin cấu hình Git cá nhân
 │   ├── .face                      # Ảnh đại diện người dùng trên màn hình khóa
 │   └── .face.icon                 # Icon đại diện tài khoản
+├── local_bin/                     # Các tiện ích cá nhân ~/.local/bin
+│   └── sync-sweet-darkly          # Tiện ích tự động đồng bộ độ mờ Darkly sang theme Plasma Sweet
 ├── local_share/                   # Tài nguyên giao diện ~/.local/share
 │   ├── fonts/                     # Toàn bộ font: SF-Pro, JetBrainsMono, AnnotationMono, Iosevka
 │   ├── icons/                     # Con trỏ chuột Bibata và bộ icon Papirus-Dark, Breeze-Noir, candy
 │   ├── color-schemes/             # Bảng màu Catppuccin Mocha colors
 │   ├── aurorae/                   # Chủ đề viền cửa sổ Otto
-│   ├── plasma/                    # Desktoptheme (Ant-Dark), Look-and-Feel, Plasmoids (Widgets)
+│   ├── plasma/                    # Desktoptheme (Sweet, Ant-Dark), Look-and-Feel, Plasmoids (Widgets)
 │   └── easyeffects/               # Preset âm thanh live_eq.json
 ├── system/                        # Cấu hình tối ưu máy cấp độ hệ thống (/etc)
+│   ├── setup-battery-saver.sh     # Script tối ưu pin cực hạn (AC/BAT dynamic)
 │   ├── tlp.d/                     # Cấu hình tiết kiệm pin ThinkPad cực đại
 │   ├── modprobe.d/                # Cấu hình GPU Intel i915 FBC + PSR tiết kiệm điện
+│   ├── udev.rules.d/              # Khóa trần Intel RAPL 10W khi dùng pin
+│   ├── libinput/                  # Cấu hình phần cứng Touchpad Synaptics TM3471-020 (chống chạm nhầm)
 │   ├── environment                # Tinh chỉnh độ nét font Freetype stem-darkening
 │   ├── pacman.conf                # Pacman 5 luồng tải, giao diện màu sắc, multilib
 │   ├── makepkg.conf.snippet       # Tối ưu hóa compile gói phần mềm đa luồng
@@ -104,7 +109,7 @@ linux-customizations/
 │   ├── wallpapers/                # Hình nền mèo mây cat-in-clouds.png, clouds-5, panes, river-city
 │   └── icons/                     # Icon SVG Control Centre
 └── packages/                      # Quản lý gói phần mềm
-    ├── pkglist-repo.txt           # Danh sách 149 gói chính thức của hệ thống Arch Linux
+    ├── pkglist-repo.txt           # Danh sách gói chính thức của hệ thống Arch Linux
     ├── pkglist-aur.txt            # Danh sách các gói AUR đã cài (yay)
     └── darkly/                    # Toàn bộ mã nguồn Darkly Window Decoration sẵn sàng build
 ```
@@ -115,7 +120,9 @@ linux-customizations/
 
 ### A. Giao diện & Chủ đề (Theme & Colors)
 - **Plasma Look-and-Feel:** `Catppuccin_Final`
-- **Plasma Desktop Theme:** `Ant-Dark` (Tối hiện đại, thanh thoát, bo góc mịn)
+- **Plasma Desktop Theme:** `Sweet` (Phong cách kính mờ Cyberpunk/Dark hiện đại).
+  - Tích hợp công cụ tùy chỉnh [`local_bin/sync-sweet-darkly`](file:///home/nguyendinhkhanh/Documents/GitHub/linux-customizations/local_bin/sync-sweet-darkly): Tự động đồng bộ độ mờ kính mờ `DolphinViewOpacity` (mặc định 60%) từ `darklyrc` vào theme Sweet, tắt AdaptiveTransparency để thanh panel và popup luôn giữ hiệu ứng mờ ảo đồng nhất.
+  - Sử dụng: `sync-sweet-darkly` hoặc `sync-sweet-darkly 0.65`.
 - **Bảng màu (Color Scheme):** `Catppuccin Mocha` với màu nhấn (Accent Color) là màu tím mộng mơ (Mauve `#926ee4` / RGB `146, 110, 228`).
 - **Ứng dụng & Viền cửa sổ (Application & Window Style):** `Darkly`
   - Tích hợp kính mờ trong suốt (Blur & Transparency) với độ mờ 60% trên thanh Sidebar và View của Dolphin, Menu bar, Tab bar.
@@ -243,6 +250,8 @@ Các thiết lập nằm trong thư mục `system/` được tinh chỉnh tối 
    - Mở khóa tải 5 file song song (`ParallelDownloads = 5`), bật màu sắc hiển thị và kho phần mềm `multilib`.
 9. **Xử lý xung đột dịch vụ:**
    - Đã `mask power-profiles-daemon` để TLP nắm toàn quyền điều phối điện năng, tránh 2 trình quản lý giằng co làm nóng máy.
+10. **Tối ưu Bàn di chuột Touchpad ThinkPad (`/etc/libinput/local-overrides.quirks`):**
+    - Cấu hình dải áp lực tiếp xúc (`AttrPressureRange=6:4`) và ngưỡng nhận diện lòng bàn tay chống chạm nhầm (`AttrPalmPressureThreshold=120`, `AttrThumbPressureThreshold=60`) cho phần cứng Synaptics TM3471-020.
 
 ---
 

@@ -20,8 +20,8 @@ Image=/home/nguyendinhkhanh/Downloads/cat-in-clouds.png
 [Containments][72]
 ItemGeometries-1280x720=Applet-102:368,144,640,160,0;Applet-103:416,320,576,176,0;
 ItemGeometries-1366x768=Applet-102:416,144,640,160,0;Applet-103:464,336,576,176,0;
-ItemGeometries-1920x1080=Applet-102:416,144,640,160,0;Applet-103:464,336,576,176,0;
-ItemGeometriesHorizontal=Applet-102:416,144,640,160,0;Applet-103:464,336,576,176,0;
+ItemGeometries-1920x1080=Applet-102:640,176,640,160,0;Applet-103:736,384,576,176,0;
+ItemGeometriesHorizontal=Applet-102:640,176,640,160,0;Applet-103:736,384,576,176,0;
 activityId=30092969-378c-401e-bf83-80f9385ce5b6
 formfactor=0
 immutability=1
@@ -41,6 +41,12 @@ plugin=Music.Waves
 [Containments][72][Applets][103][Configuration][ConfigDialog]
 DialogHeight=630
 DialogWidth=810
+
+[Containments][72][General]
+changedPositions={}
+lastResolution=1920x1080
+positions={"1920x1080":["1","17"]}
+sortMode=-1
 
 [Containments][72][Wallpaper][org.kde.color][General]
 Color=0,0,0
@@ -112,8 +118,8 @@ immutability=1
 plugin=org.kde.plasma.windowlist
 
 [Containments][73][Applets][105][Configuration]
-popupHeight=117
-popupWidth=362
+popupHeight=153
+popupWidth=561
 
 [Containments][73][Applets][105][Configuration][ConfigDialog]
 DialogHeight=630
@@ -136,6 +142,8 @@ DialogWidth=810
 
 [Containments][73][Applets][74][Configuration][General]
 favoritesPortedToKAstats=true
+icon=/home/nguyendinhkhanh/Downloads/cat-svgrepo-com.svg
+systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
 [Containments][73][Applets][75]
 immutability=1
@@ -154,7 +162,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][73][Applets][77][Configuration][General]
-launchers=applications:org.kde.dolphin.desktop,applications:com.microsoft.Edge.desktop,applications:systemsettings.desktop,applications:code.desktop,applications:kitty.desktop,applications:discord.desktop,applications:org.kde.plasma-systemmonitor.desktop
+launchers=applications:org.kde.dolphin.desktop,applications:com.microsoft.Edge.desktop,applications:kitty.desktop,applications:discord.desktop
 
 [Containments][73][Applets][78]
 activityId=
@@ -261,4 +269,4 @@ AppletOrder=74;105;75;76;77;99;101;100;78;104;94
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/linux-customizations,0,30092969-378c-401e-bf83-80f9385ce5b6
+screenMapping=

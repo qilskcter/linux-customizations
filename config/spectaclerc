@@ -1,6 +1,11 @@
 [ImageSave]
-lastImageSaveLocation=file:///home/nguyendinhkhanh/Pictures/Screenshots/Screenshot_20260829_102919.png
+lastImageSaveAsLocation=file:///home/nguyendinhkhanh/Documents/GitHub/linux-customizations/assets/screenshots/Screenshot.png
+lastImageSaveLocation=file:///home/nguyendinhkhanh/Documents/GitHub/linux-customizations/assets/screenshots/Screenshot.png
 translatedScreenshotsFolder=Screenshots
 
 [VideoSave]
 translatedScreencastsFolder=Screencasts
+
+[ViewerWindow]
+2 screens: Height=570
+2 screens: Width=701

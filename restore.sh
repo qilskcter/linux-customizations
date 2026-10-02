@@ -163,7 +163,15 @@ restore_home_files() {
     mkdir -p "$HOME/.config/hypr/scripts/quickshell"
     cp -rf "$SCRIPT_DIR/config/hypr/scripts/quickshell/"* "$HOME/.config/hypr/scripts/quickshell/" 2>/dev/null || true
 
-    log_success "Đã khôi phục hoàn tất Terminal, Zsh, Bộ gõ và GTK!"
+    # Khôi phục các script tiện ích người dùng (~/.local/bin)
+    mkdir -p "$HOME/.local/bin"
+    if [ -d "$SCRIPT_DIR/local_bin" ]; then
+        log_info "Đang khôi phục các script người dùng (sync-sweet-darkly)..."
+        cp -rf "$SCRIPT_DIR/local_bin/"* "$HOME/.local/bin/" 2>/dev/null || true
+        chmod +x "$HOME/.local/bin/"* 2>/dev/null || true
+    fi
+
+    log_success "Đã khôi phục hoàn tất Terminal, Zsh, Bộ gõ, Tiện ích và GTK!"
 }
 
 # 6. Khôi phục toàn bộ cấu hình KDE Plasma 6 (Bố cục panel, KWin, Darkly, Phím tắt)
@@ -180,7 +188,7 @@ restore_plasma_configs() {
     for f in kdeglobals kwinrc kwinrulesrc kwinoutputconfig.json plasmarc plasmashellrc \
              darklyrc kcminputrc kscreenlockerrc ksplashrc kactivitymanagerdrc \
              kactivitymanagerd-statsrc kded5rc kglobalshortcutsrc dolphinrc spectaclerc \
-             kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs; do
+             kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs knighttimerc; do
         if [ -f "$SCRIPT_DIR/config/$f" ]; then
             cp -f "$SCRIPT_DIR/config/$f" "$HOME/.config/"
         fi
@@ -269,6 +277,12 @@ apply_system_optimizations() {
 
         log_info "Đang áp dụng cấu hình Pacman..."
         sudo cp -f "$SCRIPT_DIR/system/pacman.conf" /etc/pacman.conf
+
+        if [ -f "$SCRIPT_DIR/system/libinput/local-overrides.quirks" ]; then
+            log_info "Đang áp dụng cấu hình phần cứng Touchpad Synaptics (/etc/libinput)..."
+            sudo mkdir -p /etc/libinput
+            sudo cp -f "$SCRIPT_DIR/system/libinput/local-overrides.quirks" /etc/libinput/
+        fi
 
         log_info "Kích hoạt dịch vụ hệ thống và SSD Trim..."
         sudo systemctl enable --now fstrim.timer 2>/dev/null || true

@@ -33,6 +33,7 @@ grim
 gum
 gvfs
 gvfs-mtp
+hardinfo2
 htop
 hyprlock
 hyprpaper
@@ -124,9 +125,11 @@ tumbler
 udiskie
 unzip
 usbutils
+uv
 uwsm
 vim
 visual-studio-code-bin
+vlc
 vulkan-intel
 vulkan-nouveau
 vulkan-radeon

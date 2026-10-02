@@ -1,8 +1,9 @@
 [PlasmaViews][Panel 73]
 alignment=132
 floating=1
+floatingApplets=0
 panelLengthMode=0
-panelOpacity=2
+panelOpacity=0
 panelVisibility=0
 shell=org.kde.plasma.desktop
 

@@ -34,7 +34,7 @@ log_info "Sao lưu tệp cấu hình KDE Plasma 6 & KWin..."
 for f in kdeglobals kwinrc kwinrulesrc kwinoutputconfig.json plasmarc plasmashellrc \
          darklyrc kcminputrc kscreenlockerrc ksplashrc kactivitymanagerdrc \
          kactivitymanagerd-statsrc kded5rc kglobalshortcutsrc dolphinrc spectaclerc \
-         kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs plasma-org.kde.plasma.desktop-appletsrc; do
+         kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs plasma-org.kde.plasma.desktop-appletsrc knighttimerc; do
     if [ -f "$HOME/.config/$f" ]; then
         cp -f "$HOME/.config/$f" "$SCRIPT_DIR/config/"
     fi
@@ -95,6 +95,18 @@ fi
 if [ -f "/etc/systemd/system/powertop.service" ]; then
     mkdir -p "$SCRIPT_DIR/system/services"
     cp -f /etc/systemd/system/powertop.service "$SCRIPT_DIR/system/services/"
+fi
+if [ -f "/etc/libinput/local-overrides.quirks" ]; then
+    mkdir -p "$SCRIPT_DIR/system/libinput"
+    cp -f /etc/libinput/local-overrides.quirks "$SCRIPT_DIR/system/libinput/"
+fi
+
+# 6. Sao lưu các tiện ích người dùng ~/.local/bin
+log_info "Sao lưu các tiện ích người dùng ~/.local/bin..."
+mkdir -p "$SCRIPT_DIR/local_bin"
+if [ -f "$HOME/.local/bin/sync-sweet-darkly" ]; then
+    cp -f "$HOME/.local/bin/sync-sweet-darkly" "$SCRIPT_DIR/local_bin/"
+    chmod +x "$SCRIPT_DIR/local_bin/sync-sweet-darkly"
 fi
 
 echo ""
