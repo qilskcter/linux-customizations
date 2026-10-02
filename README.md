@@ -107,7 +107,7 @@ linux-customizations/
 │   └── services-list.txt          # Danh sách lệnh bật/tắt dịch vụ hệ thống
 ├── assets/                        # Hình nền & Biểu tượng nút bấm
 │   ├── wallpapers/                # Hình nền mèo mây cat-in-clouds.png, clouds-5, panes, river-city
-│   └── icons/                     # Icon SVG Control Centre
+│   └── icons/                     # Icon SVG: cat-svgrepo-com.svg (Application Launcher), control-centre.svg
 └── packages/                      # Quản lý gói phần mềm
     ├── pkglist-repo.txt           # Danh sách gói chính thức của hệ thống Arch Linux
     ├── pkglist-aur.txt            # Danh sách các gói AUR đã cài (yay)
@@ -136,7 +136,7 @@ linux-customizations/
 ### B. Bố cục Thanh Panel & Widgets
 - **Vị trí Panel:** Đặt ở **Cạnh trên cùng (Top Panel)** với chế độ hiển thị nổi bo góc.
 - **Các thành phần trên Panel (từ trái qua phải):**
-  1. `org.kde.plasma.kickoff` : Menu ứng dụng góc trái.
+  1. `org.kde.plasma.kickoff` : Menu ứng dụng góc trái với **biểu tượng chú mèo tùy biến** (`cat-svgrepo-com.svg`).
   2. `org.kde.plasma.windowlist` : Danh sách chuyển đổi cửa sổ nhanh.
   3. `KdeControlStation` : Trung tâm điều khiển trung tâm (Control Center) với icon điều khiển tùy biến, tích hợp chuyển chế độ pin, âm lượng, độ sáng, Wi-Fi.
   4. `org.kde.plasma.panelspacer` : Khoảng trống đẩy đồng hồ ra giữa.

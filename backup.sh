@@ -66,6 +66,16 @@ cp -rf "$HOME/.local/share/aurorae/"* "$SCRIPT_DIR/local_share/aurorae/" 2>/dev/
 cp -rf "$HOME/.local/share/plasma/"* "$SCRIPT_DIR/local_share/plasma/" 2>/dev/null || true
 cp -rf "$HOME/.local/share/easyeffects/"* "$SCRIPT_DIR/local_share/easyeffects/" 2>/dev/null || true
 
+# 3b. Sao lưu biểu tượng tùy chỉnh (assets/icons)
+log_info "Sao lưu biểu tượng tùy chỉnh (cat-svgrepo-com.svg, control-centre)..."
+mkdir -p "$SCRIPT_DIR/assets/icons"
+if [ -f "$HOME/Downloads/cat-svgrepo-com.svg" ]; then
+    cp -f "$HOME/Downloads/cat-svgrepo-com.svg" "$SCRIPT_DIR/assets/icons/"
+fi
+if [ -f "$HOME/Downloads/control-centre-svgrepo-com (3).svg" ]; then
+    cp -f "$HOME/Downloads/control-centre-svgrepo-com (3).svg" "$SCRIPT_DIR/assets/icons/control-centre.svg"
+fi
+
 # 4. Sao lưu danh sách phần mềm (Packages)
 log_info "Cập nhật danh sách phần mềm Arch & AUR..."
 pacman -Qqe > "$SCRIPT_DIR/packages/pkglist-repo.txt" 2>/dev/null || true

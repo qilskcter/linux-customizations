@@ -128,6 +128,11 @@ restore_wallpapers() {
         cp -f "$SCRIPT_DIR/assets/icons/control-centre.svg" "$HOME/Downloads/control-centre-svgrepo-com (3).svg" 2>/dev/null || true
     fi
 
+    if [ -f "$SCRIPT_DIR/assets/icons/cat-svgrepo-com.svg" ]; then
+        log_info "Đang khôi phục biểu tượng chú mèo cho Application Launcher..."
+        cp -f "$SCRIPT_DIR/assets/icons/cat-svgrepo-com.svg" "$HOME/Downloads/cat-svgrepo-com.svg" 2>/dev/null || true
+    fi
+
     log_success "Đã khôi phục hình nền desktop & icon thành công!"
 }
 
