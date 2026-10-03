@@ -1,298 +1,310 @@
-# CẨM NANG & BỘ CẤU HÌNH TÙY BIẾN TOÀN DIỆN ARCH LINUX + KDE PLASMA 6
+# ARCH LINUX + KDE PLASMA 6 COMPREHENSIVE CUSTOMIZATION SUITE
 
-> **Dành cho ThinkPad E490 / Arch Linux x86_64**  
-> Dự án chứa toàn bộ mã nguồn cấu hình, giao diện, widget, font chữ, bố cục panel, phím tắt, terminal và các thiết lập tối ưu máy tiết kiệm pin & hiệu năng cực đại.
+[English](README.md) | [Tiếng Việt](README_VI.md)
 
+> **Tailored for ThinkPad E490 / Arch Linux x86_64**  
+> A complete dotfiles and configuration repository covering desktop aesthetics, widgets, typography, panel layout, keybindings, terminal environment, and aggressive battery life and performance optimizations.
 
 ![Screenshot](./assets/screenshots/Screenshot.png)
----
-
-## MỤC LỤC
-1. [Khôi phục giao diện như cũ chỉ với 1 lệnh](#1-khôi-phục-giao-diện-như-cũ-chỉ-với-1-lệnh)
-2. [Cấu trúc thư mục dự án](#2-cấu-trúc-thư-mục-dự-án)
-3. [Chi tiết toàn bộ các thành phần đã được tùy biến](#3-chi-tiết-toàn-bộ-các-thành-phần-đã-được-tùy-biến)
-   - [Giao diện & Chủ đề (Theme & Colors)](#a-giao-diện--chủ-đề-theme--colors)
-   - [Bố cục Thanh Panel & Widgets](#b-bố-cục-thanh-panel--widgets)
-   - [Font chữ & Độ mịn màn hình](#c-font-chữ--độ-mịn-màn-hình)
-   - [Hiệu ứng cửa sổ KWin & Tiling](#d-hiệu-ứng-cửa-sổ-kwin--tiling)
-   - [Phím tắt thao tác nhanh (Keybindings)](#e-phím-tắt-thao-tác-nhanh-keybindings)
-   - [Terminal Kitty & Shell Zsh](#f-terminal-kitty--shell-zsh)
-   - [Bộ gõ tiếng Việt](#g-bộ-gõ-tiếng-việt)
-   - [Tối ưu hóa Pin & Hiệu năng ThinkPad](#h-tối-ưu-hóa-pin--hiệu-năng-thinkpad)
-4. [Hướng dẫn sao lưu cập nhật khi có thay đổi mới](#4-hướng-dẫn-sao-lưu-cập-nhật-khi-có-thay-đổi-mới)
-5. [Cài đặt trên một máy mới hoàn toàn (Clean Install)](#5-cài-đặt-trên-một-máy-mới-hoàn-toàn-clean-install)
-6. [Khắc phục sự cố thường gặp (Troubleshooting)](#6-khắc-phục-sự-cố-thường-gặp-troubleshooting)
 
 ---
 
-## 1. KHÔI PHỤC GIAO DIỆN NHƯ CŨ CHỈ VỚI 1 LỆNH
+## TABLE OF CONTENTS
+1. [One-Command Desktop Restoration](#1-one-command-desktop-restoration)
+2. [Repository Structure](#2-repository-structure)
+3. [Comprehensive Customization Breakdown](#3-comprehensive-customization-breakdown)
+   - [Appearance & Themes](#a-appearance--themes)
+   - [Panel Layout & Widgets](#b-panel-layout--widgets)
+   - [Typography & Font Rendering](#c-typography--font-rendering)
+   - [KWin Window Management & Tiling](#d-kwin-window-management--tiling)
+   - [Keybindings & Shortcuts](#e-keybindings--shortcuts)
+   - [Kitty Terminal & Zsh Shell](#f-kitty-terminal--zsh-shell)
+   - [Vietnamese Input Method](#g-vietnamese-input-method)
+   - [ThinkPad Battery & Performance Optimization](#h-thinkpad-battery--performance-optimization)
+4. [Backup & Synchronization Workflow](#4-backup--synchronization-workflow)
+5. [Clean Installation Guide](#5-clean-installation-guide)
+6. [Troubleshooting](#6-troubleshooting)
 
-Khi bạn lỡ tay xóa mất panel, giao diện bị vỡ, font chữ bị đổi, hoặc bạn muốn đưa mọi thứ về trạng thái hoàn hảo như lúc ban đầu:
+---
 
-### Bước 1: Mở Terminal lên và di chuyển vào thư mục này:
+## 1. ONE-COMMAND DESKTOP RESTORATION
+
+When a panel is accidentally deleted, an interface layout breaks, fonts are altered, or you want to return the system to its initial perfected state:
+
+### Step 1: Open a terminal and navigate to this repository:
 ```bash
 cd ~/Documents/GitHub/linux-customizations
 ```
 
-### Bước 2: Chạy script khôi phục:
+### Step 2: Execute the restoration script:
 ```bash
 ./restore.sh
 ```
-*(Script sẽ tự động sao lưu cấu hình hiện tại vào `~/.config.backup.<thời_gian>` để đảm bảo 100% an toàn dữ liệu trước khi khôi phục).*
+*(The script automatically creates a backup of current configurations at `~/.config.backup.<timestamp>` prior to making any modifications).*
 
-### Các tùy chọn nâng cao khi chạy `restore.sh`:
-- `./restore.sh --all` : Khôi phục tất cả tự động (Giao diện, Font, Hình nền, Tối ưu hệ thống /etc).
-- `./restore.sh --ui` : Chỉ khôi phục giao diện, bố cục panel, widgets, font và terminal (không đụng chạm tới /etc, không cần mật khẩu root).
-- `./restore.sh --fonts` : Chỉ cài đặt lại font chữ và làm mới bộ nhớ đệm font.
-- `./restore.sh --system` : Chỉ áp dụng các cấu hình tối ưu pin và hiệu năng hệ thống `/etc`.
+### Advanced flags for `restore.sh`:
+- `./restore.sh --all` : Complete automated restoration (UI, fonts, wallpapers, and `/etc` system-level optimizations).
+- `./restore.sh --ui` : Restores only user-space settings (panel layout, widgets, fonts, theme, and terminal configs) without altering `/etc` or prompting for root privileges.
+- `./restore.sh --fonts` : Reinstalls all bundled fonts and rebuilds the font cache.
+- `./restore.sh --system` : Applies only `/etc` system-level battery and hardware tuning configurations.
 
-> **Mẹo:** Sau khi khôi phục xong, hãy **Đăng xuất (Log Out)** và đăng nhập lại, hoặc khởi động lại máy để toàn bộ font chữ và hiệu ứng kính mờ được áp dụng đồng bộ trên tất cả ứng dụng.
+> [!TIP]
+> After running the restoration script, log out and log back in (or restart the machine) so that all fonts, window shaders, and blur effects take effect cleanly across all running applications.
 
 ---
 
-## 2. CẤU TRÚC THƯ MỤC DỰ ÁN
+## 2. REPOSITORY STRUCTURE
 
 ```
 linux-customizations/
-├── README.md                      # Cẩm nang hướng dẫn sử dụng chi tiết (tệp này)
-├── restore.sh                     # Script 1-click tự động khôi phục mọi thứ như cũ
-├── backup.sh                      # Script 1-click tự động cập nhật / đồng bộ tùy biến mới vào project
-├── config/                        # Toàn bộ tệp cấu hình ~/.config
-│   ├── kdeglobals                 # Cấu hình màu Catppuccin, font SF Pro, màu nhấn Mauve tím
-│   ├── kwinrc                     # Hiệu ứng KWin (Wobbly, Blur, Night Color, Tiling layout)
-│   ├── kwinrulesrc                # Quy tắc hiển thị cửa sổ
-│   ├── kwinoutputconfig.json      # Cấu hình đa màn hình (Màn ThinkPad + Màn rời DP-1 100Hz)
-│   ├── plasmarc                   # Theme Plasma (Ant-Dark)
-│   ├── plasmashellrc              # Shell Plasma
-│   ├── plasma-org.kde.plasma.desktop-appletsrc # Cấu trúc thanh panel trên và các widget
-│   ├── darklyrc                   # Độ trong suốt và làm mờ của Darkly Style
-│   ├── kdedefaults/               # Liên kết mặc định các thành phần giao diện
-│   ├── kcminputrc                 # Con trỏ chuột Bibata-Modern-Ice và cảm ứng touchpad
-│   ├── kscreenlockerrc            # Màn hình khóa
-│   ├── ksplashrc                  # Màn hình khởi động Splash screen (Catppuccin_Final)
-│   ├── kglobalshortcutsrc         # Danh sách phím tắt hệ thống
-│   ├── fontconfig/                # Khử răng cưa font: Subpixel RGB, Hinting, LCD Filter
-│   ├── kitty/                     # Cấu hình Kitty Terminal + Catppuccin Mocha theme
-│   ├── fastfetch/                 # Cấu hình Fastfetch
-│   ├── fcitx5/                    # Cấu hình bộ gõ Fcitx5 (nếu dùng song song)
-│   ├── gtk-3.0/ & gtk-4.0/        # Đồng bộ giao diện ứng dụng GTK với KDE
-│   ├── easyeffects/               # Bộ cân bằng âm thanh Equalizer
-│   └── hypr/                      # Quickshell color palette cho banner terminal
-├── home/                          # Các tệp cấu hình trực tiếp tại thư mục $HOME
-│   ├── .zshrc                     # Cấu hình Zsh với Fastfetch banner động + smart cd
-│   ├── .p10k.zsh                  # Theme Powerlevel10k phong cách Apple/Modern
-│   ├── .gtkrc-2.0                 # Cấu hình giao diện GTK2 cũ
-│   ├── .gitconfig                 # Thông tin cấu hình Git cá nhân
-│   ├── .face                      # Ảnh đại diện người dùng trên màn hình khóa
-│   └── .face.icon                 # Icon đại diện tài khoản
-├── local_bin/                     # Các tiện ích cá nhân ~/.local/bin
-│   └── sync-sweet-darkly          # Tiện ích tự động đồng bộ độ mờ Darkly sang theme Plasma Sweet
-├── local_share/                   # Tài nguyên giao diện ~/.local/share
-│   ├── fonts/                     # Toàn bộ font: SF-Pro, JetBrainsMono, AnnotationMono, Iosevka
-│   ├── icons/                     # Con trỏ chuột Bibata và bộ icon Papirus-Dark, Breeze-Noir, candy
-│   ├── color-schemes/             # Bảng màu Catppuccin Mocha colors
-│   ├── aurorae/                   # Chủ đề viền cửa sổ Otto
-│   ├── plasma/                    # Desktoptheme (Sweet, Ant-Dark), Look-and-Feel (Final_S), Plasmoids (Panel Colorizer)
-│   ├── kwin/                      # Hiệu ứng KWin shaders bo góc (shapecorners) & KWin script (maxpadd)
-│   └── easyeffects/               # Preset âm thanh live_eq.json
-├── system/                        # Cấu hình tối ưu máy cấp độ hệ thống (/etc)
-│   ├── setup-battery-saver.sh     # Script tối ưu pin cực hạn (AC/BAT dynamic)
-│   ├── tlp.d/                     # Cấu hình tiết kiệm pin ThinkPad cực đại
-│   ├── modprobe.d/                # Cấu hình GPU Intel i915 FBC + PSR tiết kiệm điện
-│   ├── udev.rules.d/              # Khóa trần Intel RAPL 10W khi dùng pin
-│   ├── libinput/                  # Cấu hình phần cứng Touchpad Synaptics TM3471-020 (chống chạm nhầm)
-│   ├── environment                # Tinh chỉnh độ nét font Freetype stem-darkening
-│   ├── pacman.conf                # Pacman 5 luồng tải, giao diện màu sắc, multilib
-│   ├── makepkg.conf.snippet       # Tối ưu hóa compile gói phần mềm đa luồng
-│   ├── zram-generator.conf        # Cấu hình ZRAM RAM ảo nén zstd 4GB
-│   └── services-list.txt          # Danh sách lệnh bật/tắt dịch vụ hệ thống
-├── assets/                        # Hình nền & Biểu tượng nút bấm
-│   ├── wallpapers/                # Hình nền mèo mây cat-in-clouds.png, clouds-5, panes, river-city
-│   └── icons/                     # Icon SVG: cat-svgrepo-com.svg (Application Launcher), control-centre.svg
-└── packages/                      # Quản lý gói phần mềm
-    ├── pkglist-repo.txt           # Danh sách gói chính thức của hệ thống Arch Linux
-    ├── pkglist-aur.txt            # Danh sách các gói AUR đã cài (yay)
-    └── darkly/                    # Toàn bộ mã nguồn Darkly Window Decoration sẵn sàng build
+├── README.md                      # English documentation (this file)
+├── README_VI.md                   # Detailed Vietnamese guide
+├── restore.sh                     # One-click restoration script
+├── backup.sh                      # One-click script to synchronize system changes into the repository
+├── config/                        # User configuration directory (~/.config)
+│   ├── kdeglobals                 # Catppuccin palette, SF Pro typography, Mauve accent color
+│   ├── kwinrc                     # KWin effects (Wobbly windows, Blur, Night Color, Tiling layout)
+│   ├── kwinrulesrc                # Application window behavior rules
+│   ├── kwinoutputconfig.json      # Multi-monitor display settings (eDP-1 ThinkPad + DP-1 external 100Hz)
+│   ├── plasmarc                   # Plasma theme base settings (Ant-Dark)
+│   ├── plasmashellrc              # Plasma shell configuration
+│   ├── plasma-org.kde.plasma.desktop-appletsrc # Top panel layout, widget hierarchy, and custom launcher icon
+│   ├── darklyrc                   # Darkly style window decoration opacity, blur, and styling
+│   ├── kdedefaults/               # Default desktop look-and-feel package definitions
+│   ├── kcminputrc                 # Bibata-Modern-Ice cursor and touchpad behaviors
+│   ├── kscreenlockerrc            # Lock screen parameters
+│   ├── ksplashrc                  # Splash screen configuration (Catppuccin_Final)
+│   ├── kglobalshortcutsrc         # System keybindings and window manager shortcuts
+│   ├── fontconfig/                # Font antialiasing, subpixel RGB, hinting, and LCD filter settings
+│   ├── kitty/                     # Kitty terminal emulator configuration with Catppuccin Mocha theme
+│   ├── fastfetch/                 # Fastfetch hardware summary configuration
+│   ├── fcitx5/                    # Fcitx5 input method configuration (if installed)
+│   ├── gtk-3.0/ & gtk-4.0/        # GTK application theme synchronization with KDE
+│   ├── easyeffects/               # Audio equalizer and sound processing profiles
+│   └── hypr/                      # Quickshell color palette for terminal greeting banners
+├── home/                          # Configuration files deployed to $HOME
+│   ├── .zshrc                     # Zsh configuration with dynamic Fastfetch banner, plugins, and smart cd
+│   ├── .p10k.zsh                  # Powerlevel10k prompt configuration
+│   ├── .gtkrc-2.0                 # Legacy GTK2 theme configuration
+│   ├── .gitconfig                 # Personal Git configuration
+│   ├── .face                      # User lock screen avatar
+│   └── .face.icon                 # User account icon
+├── local_bin/                     # User executable utilities (~/.local/bin)
+│   └── sync-sweet-darkly          # Utility synchronizing Darkly blur opacity to Sweet Plasma theme
+├── local_share/                   # User desktop resources (~/.local/share)
+│   ├── fonts/                     # Bundled fonts: SF Pro, JetBrains Mono, Annotation Mono, Iosevka
+│   ├── icons/                     # Cursor themes (Bibata) and icon packs (Papirus-Dark, Breeze-Noir, candy)
+│   ├── color-schemes/             # Catppuccin Mocha color schemes
+│   ├── aurorae/                   # Otto window decoration theme
+│   ├── plasma/                    # Desktop themes (Sweet, Ant-Dark), Look-and-Feel (Final_S), Plasmoids (Panel Colorizer)
+│   ├── kwin/                      # KWin corner rounding shaders (shapecorners) & KWin script (maxpadd)
+│   └── easyeffects/               # Audio equalizer preset (live_eq.json)
+├── system/                        # System-level optimizations deployed to /etc
+│   ├── setup-battery-saver.sh     # Autonomous battery optimization script (dynamic AC/BAT profiles)
+│   ├── tlp.d/                     # ThinkPad extreme power saving configuration
+│   ├── modprobe.d/                # Intel i915 GPU power-saving parameters (FBC and PSR enabled)
+│   ├── udev.rules.d/              # Intel RAPL CPU power clamping (10W on battery, 25W on AC)
+│   ├── libinput/                  # Hardware quirks for Synaptics TM3471-020 touchpad (palm rejection)
+│   ├── environment                # FreeType stem-darkening tuning for crisp font rendering
+│   ├── pacman.conf                # Pacman package manager tuning (5 parallel downloads, color, multilib)
+│   ├── makepkg.conf.snippet       # Multi-core compilation optimizations
+│   ├── zram-generator.conf        # 4GB zstd-compressed RAM swap device
+│   └── services-list.txt          # Reference list of system services
+├── assets/                        # Wallpapers and custom interface assets
+│   ├── wallpapers/                # Desktop wallpapers (cat-in-clouds.png, clouds-5, panes, river-city)
+│   └── icons/                     # Vector icons: cat-svgrepo-com.svg (Launcher), control-centre.svg
+└── packages/                      # Package manifests
+    ├── pkglist-repo.txt           # Official Arch Linux repository packages
+    ├── pkglist-aur.txt            # AUR packages installed via yay
+    └── darkly/                    # Darkly window decoration source code
 ```
 
 ---
 
-## 3. CHI TIẾT TOÀN BỘ CÁC THÀNH PHẦN ĐÃ ĐƯỢC TÙY BIẾN
+## 3. COMPREHENSIVE CUSTOMIZATION BREAKDOWN
 
-### A. Giao diện & Chủ đề (Theme & Colors)
+### A. Appearance & Themes
 - **Plasma Look-and-Feel:** `Catppuccin_Final`
-- **Plasma Desktop Theme:** `Sweet` (Phong cách kính mờ Cyberpunk/Dark hiện đại).
-  - Tích hợp công cụ tùy chỉnh [`local_bin/sync-sweet-darkly`](file:///home/nguyendinhkhanh/Documents/GitHub/linux-customizations/local_bin/sync-sweet-darkly): Tự động đồng bộ độ mờ kính mờ `DolphinViewOpacity` (mặc định 60%) từ `darklyrc` vào theme Sweet, tắt AdaptiveTransparency để thanh panel và popup luôn giữ hiệu ứng mờ ảo đồng nhất.
-  - Sử dụng: `sync-sweet-darkly` hoặc `sync-sweet-darkly 0.65`.
-- **Bảng màu (Color Scheme):** `Catppuccin Mocha` với màu nhấn (Accent Color) là màu tím mộng mơ (Mauve `#926ee4` / RGB `146, 110, 228`).
-- **Ứng dụng & Viền cửa sổ (Application & Window Style):** `Darkly`
-  - Tích hợp kính mờ trong suốt (Blur & Transparency) với độ mờ 60% trên thanh Sidebar và View của Dolphin, Menu bar, Tab bar.
-  - Viền cửa sổ không có viền thừa (Borderless `BorderSize=None`), tạo cảm giác vô cực thanh thoát.
-- **Biểu tượng (Icon Theme):** `Papirus-Dark` sắc nét trên nền tối.
-- **Con trỏ chuột (Cursor Theme):** `Bibata-Modern-Ice` kích thước 24px sang trọng.
-- **Hình nền mặc định:** `cat-in-clouds.png` (Hình chú mèo ngồi ngắm trăng giữa những tầng mây êm dịu).
+- **Plasma Desktop Theme:** `Sweet` (Modern dark translucent aesthetic).
+  - Bundled synchronization utility: [`local_bin/sync-sweet-darkly`](file:///home/nguyendinhkhanh/Documents/GitHub/linux-customizations/local_bin/sync-sweet-darkly)
+    - Automatically synchronizes Dolphin view opacity (`DolphinViewOpacity`, default 60%) from `darklyrc` into the Sweet theme SVGs.
+    - Disables `AdaptiveTransparency` so top panels and popup dialogs maintain a consistent blur effect.
+    - Usage: `sync-sweet-darkly` or `sync-sweet-darkly 0.65`.
+- **Color Scheme:** `Catppuccin Mocha` with Mauve accent (`#926ee4` / RGB `146, 110, 228`).
+- **Application & Window Style:** `Darkly`
+  - Integrated translucent blur (60% opacity) across Dolphin file manager sidebar, view area, menu bars, and tab bars.
+  - Borderless window decoration (`BorderSize=None`) delivering a clean and borderless viewport.
+- **Icon Theme:** `Papirus-Dark` providing sharp contrast on dark backgrounds.
+- **Cursor Theme:** `Bibata-Modern-Ice` (size 24px).
+- **Default Wallpaper:** `cat-in-clouds.png`.
 
 ---
 
-### B. Bố cục Thanh Panel & Widgets
-- **Vị trí Panel:** Đặt ở **Cạnh trên cùng (Top Panel)** với chế độ hiển thị nổi bo góc.
-- **Các thành phần trên Panel (từ trái qua phải):**
-  1. `org.kde.plasma.kickoff` : Menu ứng dụng góc trái với **biểu tượng chú mèo tùy biến** (`cat-svgrepo-com.svg`).
-  2. `org.kde.plasma.windowlist` : Danh sách chuyển đổi cửa sổ nhanh.
-  3. `KdeControlStation` : Trung tâm điều khiển trung tâm (Control Center) với icon điều khiển tùy biến, tích hợp chuyển chế độ pin, âm lượng, độ sáng, Wi-Fi.
-  4. `org.kde.plasma.panelspacer` : Khoảng trống đẩy đồng hồ ra giữa.
-  5. `com.github.N0repi.compactclock` / `modernclock` : Đồng hồ hiển thị ngày tháng năm tối giản giữa màn hình.
-  6. `org.kde.plasma.panelspacer` : Khoảng trống đẩy khay hệ thống sang phải.
-  7. `org.kde.plasma.icontasks` : Thanh công cụ gom nhóm ứng dụng theo icon.
-  8. `org.kde.plasma.systemtray` : Khay hệ thống thu gọn.
-  9. `org.kde.plasma.showdesktop` : Nút thu nhỏ tất cả để về desktop.
-- **Widget trên Desktop:**
-  - `Music.Waves` : Sóng âm thanh chuyển động theo giai điệu nhạc đang phát.
-  - `com.github.prayag2.modernclock` : Đồng hồ phong cách hiện đại.
-- **Cấu hình đa màn hình:** Tự động nhận diện màn hình gốc ThinkPad (1366x768 @ 60Hz) và màn hình rời mở rộng DP-1 (1920x1080 @ 100Hz mượt mà).
+### B. Panel Layout & Widgets
+- **Panel Placement:** Positioned at the **Top Edge** in floating mode with rounded corners.
+- **Panel Elements (ordered from left to right):**
+  1. `org.kde.plasma.kickoff` : Application launcher with custom cat icon (`cat-svgrepo-com.svg`).
+  2. `org.kde.plasma.windowlist` : Fast window switcher.
+  3. `KdeControlStation` : Integrated Control Center for brightness, volume, network, and power management toggles.
+  4. `org.kde.plasma.panelspacer` : Expanding spacer pushing the clock to the center.
+  5. `com.github.N0repi.compactclock` / `modernclock` : Centered minimalist clock and date widget.
+  6. `org.kde.plasma.panelspacer` : Expanding spacer pushing the system tray to the right.
+  7. `org.kde.plasma.icontasks` : Icon-only task manager.
+  8. `org.kde.plasma.systemtray` : Minimized system tray.
+  9. `org.kde.plasma.showdesktop` : Minimize-all desktop toggle button.
+- **Desktop Widgets:**
+  - `Music.Waves` : Audio visualizer responding to system playback.
+  - `com.github.prayag2.modernclock` : Modern desktop clock widget.
+- **Multi-Monitor Display Configuration:**
+  - Automatically manages internal ThinkPad eDP-1 display (1366x768 @ 60Hz) and external DP-1 monitor (1920x1080 @ 100Hz).
 
 ---
 
-### C. Font chữ & Độ mịn màn hình
-- **Font giao diện chính:** `SF Pro Display` (Font tiêu chuẩn của Apple macOS/iOS) kích thước 10pt hiển thị cực kỳ dễ chịu cho mắt.
-- **Font thanh Menu, Công cụ, Tiêu đề:** `SF Pro Display` 10pt.
-- **Font chữ nhỏ (Smallest):** `SF Pro Display` 8pt.
-- **Font mã nguồn / Terminal:**
-  - `AnnotationM Nerd Font Mono` (sử dụng trong Kitty).
-  - `JetBrains Mono` & `Iosevka Nerd Font` (sẵn sàng cho code editor / Neovim).
-- **Tinh chỉnh hiển thị sắc nét:**
-  - File `~/.config/fontconfig/fonts.conf`:
-    - Khử răng cưa `antialias = true`.
-    - Dạng hiển thị điểm ảnh `rgba = rgb` (chuẩn màn hình máy tính).
-    - Tinh chỉnh ký tự `hinting = true`, `hintstyle = hintslight` cho nét chữ mềm mại tự nhiên.
-    - Bộ lọc viền màu `lcdfilter = lcddefault`.
-  - File `/etc/environment`:
-    - `FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"` loại bỏ hiện tượng chữ bị đậm quá mức trên Linux.
+### C. Typography & Font Rendering
+- **Primary Interface Font:** `SF Pro Display` (Apple design standard) at 10pt for readability and balanced spacing.
+- **Menu, Toolbar & Title Bar Fonts:** `SF Pro Display` 10pt.
+- **Small Font:** `SF Pro Display` 8pt.
+- **Monospace & Terminal Fonts:**
+  - `AnnotationM Nerd Font Mono` (configured in Kitty).
+  - `JetBrains Mono` and `Iosevka Nerd Font` (bundled for code editors and Neovim).
+- **Subpixel Font Smoothing:**
+  - `~/.config/fontconfig/fonts.conf`:
+    - Anti-aliasing enabled (`antialias = true`).
+    - Subpixel geometry set to RGB (`rgba = rgb`).
+    - Slight hinting (`hinting = true`, `hintstyle = hintslight`) for natural character contours.
+    - Color fringe filtering (`lcdfilter = lcddefault`).
+  - `/etc/environment`:
+    - `FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"` to eliminate excessive font weight on Linux.
 
 ---
 
-### D. Hiệu ứng cửa sổ KWin & Tiling
-- **Wobbly Windows:** Cửa sổ rung rinh dạng jelly mềm mại khi di chuyển hoặc kéo thả.
-- **Blur & Translucency:** Nền kính mờ với độ bão hòa màu 225 (`Saturation=225`) và khử nhiễu (`NoiseStrength=0`).
-- **Night Color (Lọc ánh sáng xanh):** Tự động điều chỉnh nhiệt độ màu về `3300K` vào ban đêm để bảo vệ thị lực và giấc ngủ.
-- **Chia cột tự động (Tiling Window Manager):**
-  - Bố cục 3 cột tỷ lệ vàng: **25% | 50% | 25%** (Cột giữa rộng cho công việc chính, 2 cột bên cho ghi chú và terminal).
-  - Khoảng cách viền lề (padding) cửa sổ là `4px`.
+### D. KWin Window Management & Tiling
+- **Wobbly Windows:** Fluid jelly effect during window movement and resizing.
+- **Blur & Translucency:** High-contrast blur with saturation level 225 (`Saturation=225`) and noise reduction (`NoiseStrength=0`).
+- **Night Color:** Automated blue light filter transitioning to `3300K` after sunset to reduce eye fatigue.
+- **Tiling Window Management:**
+  - Three-column golden ratio layout: **25% | 50% | 25%** (wide center column for active tasks, flanking columns for terminal and notes).
+  - Window gaps and outer padding configured to `4px`.
+- **Window Corner Rounding:**
+  - Shader-based corner smoothing powered by `shapecorners.frag` and `shapecorners_core.frag` in `local_share/kwin/shaders/`.
+- **Maximized Window Padding:**
+  - Handled by the `maxpadd` KWin script in `local_share/kwin/scripts/maxpadd/`, maintaining uniform padding when windows are maximized.
 
 ---
 
-### E. Phím tắt thao tác nhanh (Keybindings)
-| Phím tắt | Chức năng |
+### E. Keybindings & Shortcuts
+
+| Shortcut | Action |
 | :--- | :--- |
-| `Meta` (Phím Super) / `Alt + F1` | Mở Application Launcher (Menu bắt đầu) |
-| `Meta + V` | **Mở lịch sử Clipboard** ngay tại vị trí con trỏ chuột |
-| `Meta + 1` đến `Meta + 9` | Mở / Chuyển nhanh giữa các ứng dụng trên thanh Taskbar |
-| `Meta + ←` / `Meta + →` | Snap cửa sổ sang nửa màn hình Trái / Phải |
-| `Meta + ↑` / `Meta + ↓` | Thu nhỏ hoặc Phóng to toàn màn hình |
-| `Meta + Backspace` | Khôi phục lại kích thước cửa sổ bình thường |
-| `Meta + Shift + ←` / `→` | Chuyển ngay cửa sổ sang Màn hình phụ / Màn hình chính |
-| `Meta + Q` | Bật trình quản lý không gian làm việc (Activities) |
-| `Ctrl + F12` | Ẩn hết cửa sổ để xem Desktop |
-| `PrintScreen` | Chụp màn hình bằng Spectacle |
+| `Meta` (Super key) / `Alt + F1` | Open Application Launcher |
+| `Meta + V` | Open Clipboard History at mouse cursor |
+| `Meta + 1` through `Meta + 9` | Launch or switch to pinned taskbar applications |
+| `Meta + Left` / `Meta + Right` | Snap active window to Left / Right screen half |
+| `Meta + Up` / `Meta + Down` | Maximize or Minimize window |
+| `Meta + Backspace` | Restore window to default floating size |
+| `Meta + Shift + Left` / `Right` | Move active window to secondary / primary display |
+| `Meta + Q` | Open Activities manager |
+| `Ctrl + F12` | Toggle Show Desktop |
+| `PrintScreen` | Take interactive screenshot via Spectacle |
 
 ---
 
-### F. Terminal Kitty & Shell Zsh
+### F. Kitty Terminal & Zsh Shell
 - **Kitty Terminal:**
-  - Bảng màu Catppuccin Mocha chính thức.
-  - Font chữ: `AnnotationM Nerd Font Mono`.
-  - Bo góc và hỗ trợ hiển thị ảnh đồ họa Kitty graphics protocol.
+  - Official Catppuccin Mocha color scheme.
+  - Font: `AnnotationM Nerd Font Mono`.
+  - Window padding and native Kitty graphics protocol support enabled.
 - **Zsh Shell (`~/.zshrc`):**
-  - **Dynamic Fastfetch Banner:** Khi mở terminal, tự động trích xuất bảng màu Catppuccin và tạo thanh thông tin phần cứng tối giản cùng dải chấm tròn màu ANSI truecolor (`● ● ● ● ● ● ●`).
-  - **Powerlevel10k Prompt:** Theme dòng lệnh thời thượng, hiển thị Git branch, trạng thái thực thi.
-  - **Plugins tích hợp:** `zsh-autosuggestions` (tự động gợi ý lệnh tiếp theo mờ mờ), `zsh-syntax-highlighting` (tô màu cú pháp lệnh hợp lệ/sai), `git`.
-  - **Smart `cd`:** Tự động chạy `ls` ngay khi vừa `cd` vào bất kỳ thư mục nào.
+  - **Dynamic Fastfetch Banner:** Automatically extracts current Catppuccin color values and generates a minimalist hardware overview alongside truecolor ANSI palette indicators.
+  - **Powerlevel10k Prompt:** Modern shell prompt displaying Git branch, execution status, and context.
+  - **Integrated Plugins:** `zsh-autosuggestions` (subtle command completions), `zsh-syntax-highlighting` (visual command validation), `git`.
+  - **Smart `cd`:** Automatically runs `ls` whenever navigating into any directory.
 
 ---
 
-### G. Bộ gõ tiếng Việt
-- Sử dụng **IBus-Unikey** tích hợp nguyên bản trên Wayland/Plasma 6:
-  - Tự động nạp bộ gõ Wayland: `InputMethod=/usr/share/applications/org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop`.
-  - Phím chuyển đổi nhanh: `Ctrl + Shift` hoặc `Super + Space`.
+### G. Vietnamese Input Method
+- Native **IBus-Unikey** integration running on Wayland / Plasma 6:
+  - Autostart desktop entry: `InputMethod=/usr/share/applications/org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop`.
+  - Switch shortcut: `Ctrl + Shift` or `Super + Space`.
 
 ---
 
-### H. Tối ưu hóa Pin & Hiệu năng ThinkPad
-Các thiết lập nằm trong thư mục `system/` được tinh chỉnh tối ưu dành riêng cho dòng laptop ThinkPad chạy chip Intel:
+### H. ThinkPad Battery & Performance Optimization
+All configurations inside `system/` are tuned for Intel-powered ThinkPad laptops:
 
-1. **Bộ script tối ưu pin cực hạn (`system/setup-battery-saver.sh`):**
-   - Script tự động hóa toàn bộ việc cài đặt `tlp`, `powertop`, thiết lập giới hạn công suất Intel RAPL, vô hiệu hóa xung đột và cấu hình ALSA.
-   - Có thể chạy độc lập: `sudo bash ~/Documents/GitHub/linux-customizations/system/setup-battery-saver.sh`.
-2. **Khóa trần công suất CPU Intel RAPL 10W (`/etc/udev/rules.d/99-rapl-battery.rules`):**
-   - Tự động nhận diện khi rút sạc (`online=0`): Khóa trần tiêu thụ điện của CPU ở mức **10W** (`10000000 uW`), ngăn ngừa CPU ngốn điện đột biến khi mở app nặng.
-   - Khi cắm sạc (`online=1`): Mở lại toàn bộ công suất tối đa **25W** để đạt hiệu năng cao nhất.
+1. **Autonomous Setup Script (`system/setup-battery-saver.sh`):**
+   - Automates the installation and configuration of `tlp`, `powertop`, Intel RAPL constraints, conflict mitigation, and ALSA power-save parameters.
+   - Can be run independently: `sudo bash ~/Documents/GitHub/linux-customizations/system/setup-battery-saver.sh`.
+2. **Intel RAPL CPU Power Clamping (`/etc/udev/rules.d/99-rapl-battery.rules`):**
+   - Automatically detects battery power (`online=0`): Clamps CPU package power to **10W** (`10000000 uW`), preventing thermal spikes and aggressive battery drain when opening heavy applications.
+   - On AC power (`online=1`): Unlocks full performance up to **25W**.
 3. **Powertop Auto-Tune Service (`/etc/systemd/system/powertop.service`):**
-   - Tự động kích hoạt toàn bộ các cờ tiết kiệm điện phần cứng (PCIe, USB, Audio, SATA, CPU) mỗi khi khởi động máy.
-4. **TLP (`/etc/tlp.d/00-extreme-battery.conf`):**
-   - **Khi Cắm Sạc (AC) - Bung 100% Sức Mạnh:**
-     - Xung CPU mở trần **3.9 GHz** (`CPU_SCALING_MAX_FREQ_ON_AC=3900000`, `CPU_MAX_PERF_ON_AC=100`, Turbo Boost ON).
-     - GPU Intel UHD 620 bung xung tối đa **1.10 GHz** (`1100 MHz`).
-     - SATA Link Power đạt `max_performance`, RAPL mở trần **25W**.
-   - **Khi Dùng Pin (BAT) - Siêu Tiết Kiệm (4.5W - 5.5W):**
-     - Tắt Turbo Boost (`CPU_BOOST_ON_BAT=0`), khóa trần CPU P-state ở mức 60% (~1.6 GHz).
-     - Khống chế xung GPU Intel: Min 300MHz, Max 650MHz, Boost 750MHz.
-     - Chế độ năng lượng: `power`, giới hạn RAPL trần **10W**.
-     - Tiết kiệm điện bus PCIe (ASPM): `powersupersave`.
-     - Tắt Wake-on-LAN card Ethernet (`WOL_DISABLE=Y`).
-     - Âm thanh Conexant CX11880: Bật chế độ nghỉ ngủ DAC sau 1s ngưng phát nhạc khi dùng pin nhưng vẫn giữ PCI controller mở để không bị rè/mất âm thanh PipeWire.
-     - Tắt Bluetooth tự động khi khởi động máy bằng pin nếu không kết nối thiết bị.
-5. **GPU Intel Powersave (`/etc/modprobe.d/i915-powersave.conf`):**
-   - Bật Frame Buffer Compression (`enable_fbc=1`) và Panel Self Refresh (`enable_psr=1`) giảm mức tiêu thụ điện màn hình tới mức tối đa.
-6. **ZRAM RAM ảo nén zstd 4GB (`/etc/systemd/zram-generator.conf`):**
-   - Tạo phân vùng Swap 4GB nén bằng thuật toán zstd siêu tốc ngay trên RAM thật, giúp máy chạy mượt mà ngay cả khi mở nhiều tab trình duyệt, hoàn toàn không gây ghi hại ổ cứng SSD NVMe.
-7. **Bảo trì SSD định kỳ (`fstrim.timer`):**
-   - Tự động Trim dọn dẹp các khối nhớ thừa trên ổ cứng SSD hàng tuần, giữ tốc độ đọc ghi ổ luôn ở mức cao nhất.
-8. **Tối ưu Pacman (`/etc/pacman.conf`):**
-   - Mở khóa tải 5 file song song (`ParallelDownloads = 5`), bật màu sắc hiển thị và kho phần mềm `multilib`.
-9. **Xử lý xung đột dịch vụ:**
-   - Đã `mask power-profiles-daemon` để TLP nắm toàn quyền điều phối điện năng, tránh 2 trình quản lý giằng co làm nóng máy.
-10. **Tối ưu Bàn di chuột Touchpad ThinkPad (`/etc/libinput/local-overrides.quirks`):**
-    - Cấu hình dải áp lực tiếp xúc (`AttrPressureRange=6:4`) và ngưỡng nhận diện lòng bàn tay chống chạm nhầm (`AttrPalmPressureThreshold=120`, `AttrThumbPressureThreshold=60`) cho phần cứng Synaptics TM3471-020.
+   - Automatically enables hardware power-saving flags across PCIe, USB, Audio, SATA, and CPU buses during system boot.
+4. **TLP Power Management (`/etc/tlp.d/00-extreme-battery.conf`):**
+   - **On AC Power (Maximum Performance):**
+     - CPU frequency ceiling: **3.9 GHz** (`CPU_SCALING_MAX_FREQ_ON_AC=3900000`, `CPU_MAX_PERF_ON_AC=100`, Turbo Boost ON).
+     - Intel UHD 620 GPU max frequency: **1.10 GHz** (`1100 MHz`).
+     - SATA Link Power: `max_performance`, Intel RAPL limit: **25W**.
+   - **On Battery (Extreme Power Saving - 4.5W to 5.5W discharge):**
+     - Turbo Boost disabled (`CPU_BOOST_ON_BAT=0`), CPU P-state capped at 60% (~1.6 GHz).
+     - Intel GPU clocks constrained: Min 300MHz, Max 650MHz, Boost 750MHz.
+     - Energy Performance Preference: `power`, RAPL ceiling: **10W**.
+     - PCIe Active State Power Management (ASPM): `powersupersave`.
+     - Ethernet Wake-on-LAN disabled (`WOL_DISABLE=Y`).
+     - Conexant CX11880 audio: Audio controller enters low-power standby 1 second after playback stops while keeping the PCI controller alive to prevent PipeWire popping artifacts.
+     - Bluetooth automatically turned off on battery boot if no devices are paired.
+5. **Intel GPU Power Saving (`/etc/modprobe.d/i915-powersave.conf`):**
+   - Enables Frame Buffer Compression (`enable_fbc=1`) and Panel Self Refresh (`enable_psr=1`) to minimize display power consumption.
+6. **ZRAM Compressed Swap (`/etc/systemd/zram-generator.conf`):**
+   - Creates a 4GB zstd-compressed swap device in RAM, keeping performance fluid under heavy multitasking while eliminating SSD write cycles.
+7. **Periodic SSD Maintenance (`fstrim.timer`):**
+   - Runs weekly TRIM operations on NVMe storage to ensure consistent read/write speeds.
+8. **Pacman Optimization (`/etc/pacman.conf`):**
+   - Enables 5 parallel downloads (`ParallelDownloads = 5`), color output, and the `multilib` repository.
+9. **Service Conflict Resolution:**
+   - Masks `power-profiles-daemon` so TLP has sole control over power states without governor contention.
+10. **ThinkPad Touchpad Quirks (`/etc/libinput/local-overrides.quirks`):**
+    - Configures pressure sensitivity (`AttrPressureRange=6:4`) and palm detection thresholds (`AttrPalmPressureThreshold=120`, `AttrThumbPressureThreshold=60`) for the Synaptics TM3471-020 hardware.
 
 ---
 
-## 4. HƯỚNG DẪN SAO LƯU CẬP NHẬT KHI CÓ THAY ĐỔI MỚI
+## 4. BACKUP & SYNCHRONIZATION WORKFLOW
 
-Trong quá trình sử dụng, nếu bạn:
-- Tải thêm font mới hoặc đổi font chữ khác.
-- Kéo thả thêm widget mới lên desktop hoặc thanh taskbar.
-- Đổi hình nền máy tính khác.
-- Chỉnh sửa phím tắt hoặc cài thêm các ứng dụng mới qua Pacman/AUR.
+Whenever you:
+- Install or change fonts.
+- Add or reorganize desktop and panel widgets.
+- Change wallpapers.
+- Modify shortcuts or install new applications via Pacman/AUR.
 
-Bạn chỉ cần mở terminal và chạy:
+Simply run:
 ```bash
 cd ~/Documents/GitHub/linux-customizations
 ./backup.sh
 ```
-Script sẽ tự động lấy toàn bộ cấu hình mới nhất trên máy bạn và lưu đè vào thư mục project này.
+The script will pull all live configurations from your system and update the files in this repository.
 
 ---
 
-## 5. CÀI ĐẶT TRÊN MỘT MÁY MỚI HOÀN TOÀN (CLEAN INSTALL)
+## 5. CLEAN INSTALLATION GUIDE
 
-Nếu một ngày bạn cài lại Arch Linux mới tinh trên máy ThinkPad này hoặc máy khác:
+To deploy these customizations on a fresh Arch Linux installation:
 
-1. **Cài đặt các phần mềm chính thức:**
+1. **Install official repository packages:**
    ```bash
    sudo pacman -S - < ~/Documents/GitHub/linux-customizations/packages/pkglist-repo.txt
    ```
-2. **Cài đặt các ứng dụng AUR (nếu dùng yay):**
+2. **Install AUR packages (using yay):**
    ```bash
    yay -S - < ~/Documents/GitHub/linux-customizations/packages/pkglist-aur.txt
    ```
-3. **Biên dịch Darkly (nếu chưa có sẵn):**
+3. **Compile and install Darkly (if not prebuilt):**
    ```bash
    cd ~/Documents/GitHub/linux-customizations/packages/darkly
    cmake -B build -S . -DBUILD_QT6=ON -DBUILD_QT5=OFF
    cmake --build build -j$(nproc)
    sudo cmake --install build
    ```
-4. **Chạy khôi phục 1-click:**
+4. **Run the restoration script:**
    ```bash
    cd ~/Documents/GitHub/linux-customizations
    ./restore.sh --all
@@ -300,24 +312,20 @@ Nếu một ngày bạn cài lại Arch Linux mới tinh trên máy ThinkPad nà
 
 ---
 
-## 6. KHẮC PHỤC SỰ CỐ THƯỜNG GẶP (TROUBLESHOOTING)
+## 6. TROUBLESHOOTING
 
-### ❓ Khôi phục xong nhưng thanh panel chưa hiện ngay lập tức?
-Chạy lệnh sau để khởi động lại shell Plasma:
+### Top panel does not appear immediately after restoration
+Restart the Plasma shell:
 ```bash
 systemctl --user restart plasma-plasmashell
 ```
 
-### ❓ Hiệu ứng viền mờ trong suốt của Darkly chưa nhận?
-Vào **System Settings** -> **Colors & Themes** -> **Window Decorations** -> Chọn lại **Darkly** và nhấn **Apply**.
+### Darkly blur and transparency effects are not visible
+Open **System Settings** -> **Colors & Themes** -> **Window Decorations**, select **Darkly**, and click **Apply**.
 
-### ❓ Font chữ hiển thị còn mờ hoặc chưa áp dụng lên trình duyệt?
-Làm mới lại bộ nhớ đệm font chữ hệ thống:
+### Fonts appear blurry or have not refreshed in web browsers
+Rebuild the system font cache:
 ```bash
 fc-cache -fv
 ```
-Sau đó đăng xuất (Log out) tài khoản ra và đăng nhập lại.
-
----
-
-**Chúc bạn có trải nghiệm làm việc mượt mà, đẹp mắt và tiết kiệm pin tối đa trên Arch Linux!**
+Then log out of your session and log back in.
