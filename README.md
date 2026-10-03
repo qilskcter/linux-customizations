@@ -92,7 +92,8 @@ linux-customizations/
 │   ├── icons/                     # Con trỏ chuột Bibata và bộ icon Papirus-Dark, Breeze-Noir, candy
 │   ├── color-schemes/             # Bảng màu Catppuccin Mocha colors
 │   ├── aurorae/                   # Chủ đề viền cửa sổ Otto
-│   ├── plasma/                    # Desktoptheme (Sweet, Ant-Dark), Look-and-Feel, Plasmoids (Widgets)
+│   ├── plasma/                    # Desktoptheme (Sweet, Ant-Dark), Look-and-Feel (Final_S), Plasmoids (Panel Colorizer)
+│   ├── kwin/                      # Hiệu ứng KWin shaders bo góc (shapecorners) & KWin script (maxpadd)
 │   └── easyeffects/               # Preset âm thanh live_eq.json
 ├── system/                        # Cấu hình tối ưu máy cấp độ hệ thống (/etc)
 │   ├── setup-battery-saver.sh     # Script tối ưu pin cực hạn (AC/BAT dynamic)

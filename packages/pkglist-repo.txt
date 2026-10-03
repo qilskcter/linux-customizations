@@ -58,6 +58,7 @@ kio-admin
 kirigami2
 kitty
 konsole
+kwin-effect-rounded-corners
 kwindowsystem5
 libva-intel-driver
 linux
@@ -142,6 +143,7 @@ xclip
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xdg-utils
+xdman_gtk
 xf86-video-amdgpu
 xf86-video-ati
 xf86-video-nouveau

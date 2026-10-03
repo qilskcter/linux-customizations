@@ -108,6 +108,12 @@ restore_local_share() {
     log_info "Đang chép Cấu hình EasyEffects Audio Equalizer..."
     cp -rf "$SCRIPT_DIR/local_share/easyeffects/"* "$HOME/.local/share/easyeffects/" 2>/dev/null || true
 
+    if [ -d "$SCRIPT_DIR/local_share/kwin" ]; then
+        log_info "Đang chép KWin scripts & shaders (shapecorners, maxpadd)..."
+        mkdir -p "$HOME/.local/share/kwin"
+        cp -rf "$SCRIPT_DIR/local_share/kwin/"* "$HOME/.local/share/kwin/" 2>/dev/null || true
+    fi
+
     log_success "Đã khôi phục thành công các tài nguyên giao diện!"
 }
 
@@ -194,7 +200,8 @@ restore_plasma_configs() {
     for f in kdeglobals kwinrc kwinrulesrc kwinoutputconfig.json plasmarc plasmashellrc \
              darklyrc kcminputrc kscreenlockerrc ksplashrc kactivitymanagerdrc \
              kactivitymanagerd-statsrc kded5rc kglobalshortcutsrc dolphinrc spectaclerc \
-             kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs knighttimerc; do
+             kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs knighttimerc \
+             powerdevilrc breezerc; do
         if [ -f "$SCRIPT_DIR/config/$f" ]; then
             cp -f "$SCRIPT_DIR/config/$f" "$HOME/.config/"
         fi
@@ -202,6 +209,14 @@ restore_plasma_configs() {
 
     # Chép kdedefaults
     cp -rf "$SCRIPT_DIR/config/kdedefaults/"* "$HOME/.config/kdedefaults/" 2>/dev/null || true
+
+    # Chép panel-colorizer & plasma-workspace
+    if [ -d "$SCRIPT_DIR/config/panel-colorizer" ]; then
+        cp -rf "$SCRIPT_DIR/config/panel-colorizer" "$HOME/.config/"
+    fi
+    if [ -d "$SCRIPT_DIR/config/plasma-workspace" ]; then
+        cp -rf "$SCRIPT_DIR/config/plasma-workspace" "$HOME/.config/"
+    fi
 
     # Xử lý tệp plasma-org.kde.plasma.desktop-appletsrc: Thay thế đường dẫn người dùng tự động nếu cần
     if [ -f "$SCRIPT_DIR/config/plasma-org.kde.plasma.desktop-appletsrc" ]; then

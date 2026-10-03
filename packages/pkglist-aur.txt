@@ -2,6 +2,7 @@ antigravity
 fprintd-clients-git
 github-desktop
 hyprsysteminfo
+kwin-effect-rounded-corners
 mpvpaper
 open-fprintd
 python-pywalfox
@@ -13,5 +14,6 @@ teamviewer
 ttf-wps-fonts
 visual-studio-code-bin
 wps-office
+xdman_gtk
 yay-bin
 yay-bin-debug

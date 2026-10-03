@@ -34,7 +34,8 @@ log_info "Sao lưu tệp cấu hình KDE Plasma 6 & KWin..."
 for f in kdeglobals kwinrc kwinrulesrc kwinoutputconfig.json plasmarc plasmashellrc \
          darklyrc kcminputrc kscreenlockerrc ksplashrc kactivitymanagerdrc \
          kactivitymanagerd-statsrc kded5rc kglobalshortcutsrc dolphinrc spectaclerc \
-         kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs plasma-org.kde.plasma.desktop-appletsrc knighttimerc; do
+         kiorc plasma-localerc plasma-nm plasmanotifyrc user-dirs.dirs plasma-org.kde.plasma.desktop-appletsrc knighttimerc \
+         powerdevilrc breezerc; do
     if [ -f "$HOME/.config/$f" ]; then
         cp -f "$HOME/.config/$f" "$SCRIPT_DIR/config/"
     fi
@@ -46,6 +47,12 @@ cp -rf "$HOME/.config/kitty/"* "$SCRIPT_DIR/config/kitty/" 2>/dev/null || true
 cp -rf "$HOME/.config/fastfetch/"* "$SCRIPT_DIR/config/fastfetch/" 2>/dev/null || true
 cp -rf "$HOME/.config/fcitx5/"* "$SCRIPT_DIR/config/fcitx5/" 2>/dev/null || true
 cp -rf "$HOME/.config/easyeffects/"* "$SCRIPT_DIR/config/easyeffects/" 2>/dev/null || true
+if [ -d "$HOME/.config/panel-colorizer" ]; then
+    cp -rf "$HOME/.config/panel-colorizer" "$SCRIPT_DIR/config/"
+fi
+if [ -d "$HOME/.config/plasma-workspace" ]; then
+    cp -rf "$HOME/.config/plasma-workspace" "$SCRIPT_DIR/config/"
+fi
 if [ -f "$HOME/.config/hypr/scripts/quickshell/qs_colors.json" ]; then
     cp -f "$HOME/.config/hypr/scripts/quickshell/qs_colors.json" "$SCRIPT_DIR/config/hypr/scripts/quickshell/"
 fi
@@ -59,12 +66,17 @@ cp -f "$HOME/.gitconfig" "$SCRIPT_DIR/home/" 2>/dev/null || true
 cp -f "$HOME/.face" "$SCRIPT_DIR/home/" 2>/dev/null || true
 cp -f "$HOME/.face.icon" "$SCRIPT_DIR/home/" 2>/dev/null || true
 
-# 3. Cấu hình Local Share (Themes, Plasmoids, Color-schemes)
-log_info "Sao lưu tài nguyên ~/.local/share (color-schemes, aurorae, plasma plasmoids)..."
+# 3. Cấu hình Local Share (Themes, Plasmoids, Color-schemes, KWin)
+log_info "Sao lưu tài nguyên ~/.local/share (color-schemes, aurorae, plasma plasmoids, kwin shaders)..."
 cp -rf "$HOME/.local/share/color-schemes/"* "$SCRIPT_DIR/local_share/color-schemes/" 2>/dev/null || true
 cp -rf "$HOME/.local/share/aurorae/"* "$SCRIPT_DIR/local_share/aurorae/" 2>/dev/null || true
 cp -rf "$HOME/.local/share/plasma/"* "$SCRIPT_DIR/local_share/plasma/" 2>/dev/null || true
+rm -rf "$SCRIPT_DIR/local_share/plasma/desktoptheme/Sweet.backup" 2>/dev/null || true
 cp -rf "$HOME/.local/share/easyeffects/"* "$SCRIPT_DIR/local_share/easyeffects/" 2>/dev/null || true
+if [ -d "$HOME/.local/share/kwin" ]; then
+    mkdir -p "$SCRIPT_DIR/local_share/kwin"
+    cp -rf "$HOME/.local/share/kwin/"* "$SCRIPT_DIR/local_share/kwin/" 2>/dev/null || true
+fi
 
 # 3b. Sao lưu biểu tượng tùy chỉnh (assets/icons)
 log_info "Sao lưu biểu tượng tùy chỉnh (cat-svgrepo-com.svg, control-centre)..."

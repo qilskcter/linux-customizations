@@ -15,8 +15,27 @@ NightTemperature=3300
 
 [Plugins]
 blurEnabled=true
+kwin4_effect_shapecornersEnabled=true
+shapecornersEnabled=true
 translucencyEnabled=true
 wobblywindowsEnabled=true
+
+[Round-Corners]
+DisableOutlineFullScreen=false
+DisableOutlineMaximize=false
+DisableOutlineTile=false
+DisableRoundMaximize=false
+InactiveCornerRadius=14
+InactiveOutlineThickness=0
+InactiveSecondOutlineThickness=0
+OutlineThickness=0
+SecondOutlineThickness=0
+Size=14
+UseSquircleShape=true
+
+[Script-maxpadd]
+dockMargin=10
+gapSize=6
 
 [TabBox]
 DelayTime=20
